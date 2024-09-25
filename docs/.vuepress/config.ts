@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
   title: 'QiHuang02的文档站',
-  description: '',
+  description: 'An Docs based on vuepress and written with my notes',
 
   bundler: viteBundler(),
 

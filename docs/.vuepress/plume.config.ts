@@ -8,15 +8,15 @@ import { notes } from './notes'
 export default defineThemeConfig({
   logo: 'https://theme-plume.vuejs.press/plume.png',
   // your git repo url
-  docsRepo: 'https://github.com/QiHuang02/qihuang02.github.io',
+  docsRepo: 'https://qihuang02.github.io/',
   docsDir: 'docs',
 
-  appearance: true,
+  appearance: 'force-dark',
 
   profile: {
     avatar: 'https://theme-plume.vuejs.press/plume.png',
-    name: 'QiHuang02的文档站',
-    description: '',
+    name: 'QiHuang02 Docs',
+    description: '一个使用Vuepress的文档站，用于存放一些我自己的笔记和小研究',
     // circle: true,
     // location: '',
     // organization: '',
@@ -25,7 +25,13 @@ export default defineThemeConfig({
   navbar,
   notes,
   social: [
-    { icon: 'github', link: '/' },
+    { icon: 'github', link: 'https://github.com/QiHuang02' },
   ],
+
+  autoFrontmatter: {
+    title: true,
+    createTime: true,
+    permalink: true,
+  }
 
 })

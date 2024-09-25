@@ -6,8 +6,14 @@ const demoNote = defineNoteConfig({
   sidebar: ['', 'foo', 'bar'],
 })
 
+const kubejsNote = defineNoteConfig({
+  dir: 'kubejs',
+  link: '/kubejs',
+  sidebar: 'auto'
+})
+
 export const notes = defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [demoNote],
+  notes: [kubejsNote],
 })
