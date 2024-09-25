@@ -6,13 +6,14 @@ export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
   title: 'QiHuang02的文档站',
+  
   description: 'An Docs based on vuepress and written with my notes',
 
   bundler: viteBundler(),
 
   theme: plumeTheme({
     // 添加您的部署域名
-    // hostname: 'https://qihuang02.cn',
+    hostname: 'https://qihuang02.cn',
 
     plugins: {
       /**
@@ -73,6 +74,8 @@ export default defineUserConfig({
       //   reactionsEnabled: true,
       //   inputPosition: 'top',
       // },
+
+      
     },
   }),
 })

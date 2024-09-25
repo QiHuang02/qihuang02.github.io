@@ -1,17 +1,18 @@
 ---
 title: KubeJS 笔记 & 前言
 createTime: 2024/09/24 20:35:08
-permalink: /kubejs/
+permalink: /KubeJS/
 ---
 > [!important]
 > 本笔记基于
-> - Minecraft 1.21.1 
+>
+> - Minecraft 1.21.1
 > - KubeJS 2101.7.0
 > - ProbeJS 7.4.0
 
 ## 代码编译器
 
-&emsp;&emsp;在进行我的世界的魔改之前我们得需要一个代码编辑器来帮助我们写代码，当然你也可以使用Windows自带的记事本（~~我勒个记事本编程大佬~~），但是记事本~~几乎~~没有代码提示能力，所以我推荐使用 [**Visual Studio Code**](https://code.visualstudio.com/) （简称为 VSC ）这是一个对 **TS/JS** 具有良好支持的代码编辑器。
+&emsp;&emsp;在进行我的世界的魔改之前我们得需要一个代码编辑器来帮助我们写代码，当然你也可以使用Windows自带的记事本（~~我勒个记事本编程大佬~~），但是记事本没有代码提示能力，所以我推荐使用 [**Visual Studio Code**](https://code.visualstudio.com/) （简称为 VSC ）这是一个对 **TS/JS** 具有良好支持的代码编辑器。
 
 ## ProbeJS
 
@@ -31,15 +32,15 @@ permalink: /kubejs/
 
   - `data` 用于存放战利品表、
     > `/data/<namespace>/` 路径用于存放各种游戏数据文件，例如标签、战利品表等等，其中 `<namespace>` 为命名空间。详细请查看 [我的世界Wiki](https://zh.minecraft.wiki/w/数据包#文件夹结构)
-    
+
   - `config`
     > `config` 用于存放 KubeJS 自己的配置文件，一般不管。
-    
+
   - `client_scripts`
     > 用于存放客户端事件代码
-    
+
   - `server_scripts`
     > 用于存放服务端事件代码
-    
+
   - `startup_scripts`
     > 用于存放游戏启动事件代码

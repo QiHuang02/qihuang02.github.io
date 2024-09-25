@@ -14,7 +14,7 @@ export const navbar = defineNavbarConfig([
       // },
       {
         text: 'KubeJS',
-        link: '/notes/kubejs/README.md'
+        link: '/notes/KubeJS/README.md'
       }
     ]
   },

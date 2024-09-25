@@ -12,6 +12,7 @@ export default defineThemeConfig({
   docsDir: 'docs',
 
   appearance: 'force-dark',
+  aside: true,
 
   profile: {
     avatar: './images/avatar.png',
@@ -35,8 +36,7 @@ export default defineThemeConfig({
   },
 
   footer: {
-    message: '',
-    copyright: ''
+    copyright: 'QiHuang02'
   }
 
 })
