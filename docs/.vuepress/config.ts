@@ -12,7 +12,7 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     // 添加您的部署域名
-    hostname: 'https://qihuang02.cn',
+    // hostname: 'https://qihuang02.cn',
 
     plugins: {
       /**
