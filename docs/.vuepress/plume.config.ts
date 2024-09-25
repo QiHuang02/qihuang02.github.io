@@ -8,7 +8,7 @@ import { notes } from './notes'
 export default defineThemeConfig({
   logo: 'https://theme-plume.vuejs.press/plume.png',
   // your git repo url
-  docsRepo: '',
+  docsRepo: 'https://github.com/QiHuang02/qihuang02.github.io',
   docsDir: 'docs',
 
   appearance: true,
