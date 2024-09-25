@@ -6,7 +6,7 @@ import { notes } from './notes'
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: 'https://theme-plume.vuejs.press/plume.png',
+  logo: './images/netherite_gear.png',
   // your git repo url
   docsRepo: 'https://qihuang02.github.io/',
   docsDir: 'docs',
@@ -14,7 +14,7 @@ export default defineThemeConfig({
   appearance: 'force-dark',
 
   profile: {
-    avatar: 'https://theme-plume.vuejs.press/plume.png',
+    avatar: './images/avatar.png',
     name: 'QiHuang02 Docs',
     description: '一个使用Vuepress的文档站，用于存放一些我自己的笔记和小研究',
     // circle: true,
@@ -32,6 +32,11 @@ export default defineThemeConfig({
     title: true,
     createTime: true,
     permalink: true,
+  },
+
+  footer: {
+    message: '',
+    copyright: ''
   }
 
 })
