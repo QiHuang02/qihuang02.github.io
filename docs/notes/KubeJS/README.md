@@ -23,6 +23,10 @@ permalink: /KubeJS/
 
 &emsp;&emsp;接下来需要在 Visual Studio Code 中打开你的 modpack 的文件夹，并打开 kubejs 文件夹。然后为你的 VSC 安装 [ProbeJS](https://marketplace.visualstudio.com/items?itemName=Prunoideae.probejs) 插件，然后开始愉快的 KubeJS 魔改之旅。
 
+> [!note]
+>
+> 如果你发现在 VSC 中 ProbeJS 没有为你提供补全，起尝试按下键盘上的 `F1` 然后选择 `TypeScript:重启 TS 服务器` 选项来重启 TS 服务器。
+
 ## 文件结构
 
 &emsp;&emsp;在首次打开装有 KubeJS 的游戏时，你会发现在游戏目录下会自动生成一个名为 kubejs 的文件夹，在其下有这么几个文件夹：
