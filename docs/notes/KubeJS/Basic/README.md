@@ -1,5 +1,5 @@
 ---
-title: kubeJS 基本
+title: 前言
 createTime: 2024/09/26 00:11:04
 permalink: /KubeJS/Basic/
 ---
