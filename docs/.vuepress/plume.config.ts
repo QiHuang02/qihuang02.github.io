@@ -1,6 +1,6 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
 import { navbar } from './navbar'
-import { notes } from './notes'
+import { notes } from './notes/notes'
 
 /**
  * @see https://theme-plume.vuejs.press/config/basic/
@@ -8,7 +8,7 @@ import { notes } from './notes'
 export default defineThemeConfig({
   logo: './images/netherite_gear.png',
   // your git repo url
-  docsRepo: 'https://qihuang02.github.io/',
+  docsRepo: 'https://qihuang02.cn/',
   docsDir: 'docs',
 
   appearance: 'force-dark',
