@@ -6,17 +6,19 @@ export default defineNoteConfig({
     sidebar: [
         {
             dir: 'KubeJS',
-            text: '前言',
-            link: '/notes/KubeJS/前言.md'
+            text: 'KubeJS',
+            link: '/notes/KubeJS/README.md',
+            items: 'auto'
         },
         {
             dir: 'Basic',
             text: 'KubeJS 基本',
-            link: '/notes/KubeJS/Basic/README.md',
-            items: [
-                '事件列表',
-                '简单配方'
-            ]
+            items: 'auto'
+        },
+        {
+            dir: 'Misc',
+            text: '杂项 & 小知识',
+            items: 'auto'
         }
     ]
 })
