@@ -9,6 +9,10 @@ export default defineUserConfig({
   
   description: 'An Docs based on vuepress and written with my notes',
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16*16', href: './images/netherite_gear.png'}]
+  ],
+
   bundler: viteBundler(),
 
   theme: plumeTheme({
