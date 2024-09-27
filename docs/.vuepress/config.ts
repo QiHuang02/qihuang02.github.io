@@ -9,6 +9,11 @@ export default defineUserConfig({
   
   description: 'An Docs based on vuepress and written with my notes',
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '16*16', href: './images/netherite_gear.svg'}],
+    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: './images/netherite_gear.svg'}]
+  ],
+
   bundler: viteBundler(),
 
   theme: plumeTheme({
@@ -42,23 +47,23 @@ export default defineUserConfig({
        *  markdown power
        * @see https://theme-plume.vuejs.press/config/plugin/markdown-power/
        */
-      // markdownPower: {
-      //   pdf: true,
-      //   caniuse: true,
-      //   plot: true,
-      //   bilibili: true,
-      //   youtube: true,
-      //   icons: true,
-      //   codepen: true,
-      //   replit: true,
-      //   codeSandbox: true,
-      //   jsfiddle: true,
-      //   repl: {
-      //     go: true,
-      //     rust: true,
-      //     kotlin: true,
-      //   },
-      // },
+      markdownPower: {
+        // pdf: true,
+        // caniuse: true,
+        plot: true,
+        // bilibili: true,
+        // youtube: true,
+        // icons: true,
+        // codepen: true,
+        // replit: true,
+        // codeSandbox: true,
+        // jsfiddle: true,
+        // repl: {
+        //   go: true,
+        //   rust: true,
+        //   kotlin: true,
+        // },
+      },
 
       /**
        * comments
