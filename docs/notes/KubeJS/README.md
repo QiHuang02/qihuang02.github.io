@@ -13,7 +13,7 @@ permalink: /KubeJS/
 
 ## 代码编译器
 
-&emsp;&emsp;在进行我的世界的魔改之前我们得需要一个代码编辑器来帮助我们写代码，当然你也可以使用Windows自带的记事本（~~我勒个记事本编程大佬~~），但是记事本没有代码提示能力，所以我推荐使用 [**Visual Studio Code**](https://code.visualstudio.com/) （简称为 VSC ）这是一个对 **TS/JS** 具有良好支持的代码编辑器。
+&emsp;&emsp;在进行我的世界的魔改之前我们得需要一个代码编辑器来帮助我们写代码，当然你也可以使用Windows自带的记事本!!(我勒个记事本编程大佬)!!，但是记事本没有代码提示能力，所以我推荐使用 [**Visual Studio Code**](https://code.visualstudio.com/) （简称为 VSC ）这是一个对 **TS/JS** 具有良好支持的代码编辑器。
 
 ## ProbeJS
 
