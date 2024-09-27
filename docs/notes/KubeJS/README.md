@@ -31,21 +31,38 @@ permalink: /KubeJS/
 
 &emsp;&emsp;在首次打开装有 KubeJS 的游戏时，你会发现在游戏目录下会自动生成一个名为 kubejs 的文件夹，在其下有这么几个文件夹：
 
-- `kubejs`
-  - `assets`
-    > `/assets/<namespace>/` 路径用于存放各种游戏资源文件，例如纹理、本地化文件、音频、模型等等，其中 `<namespace>` 为命名空间。详细请查看 [我的世界Wiki](https://zh.minecraft.wiki/w/资源包#文件结构)
+::: file-tree
 
-  - `data` 用于存放战利品表、
-    > `/data/<namespace>/` 路径用于存放各种游戏数据文件，例如标签、战利品表等等，其中 `<namespace>` 为命名空间。详细请查看 [我的世界Wiki](https://zh.minecraft.wiki/w/数据包#文件夹结构)
+- kubejs
+  - assets
+    - \<namespace>
+      - textures
+        - xxx.png
+      - lang
+        - zh_cn.json
+      - sounds
+        - xxx.ogg
+      - models
+        - xxx.json
+      - ……
+  - data
+    - \<namespace>
+      - tags
+        - xxx.json
+      - ……
+  - config
+    - xxx.json
+  - client_scripts
+    - xxx.json
+  - server_scripts
+    - xxx.json
+  - startup_scripts
+    - xxx,json
 
-  - `config`
-    > `config` 用于存放 KubeJS 自己的配置文件，一般不管。
+:::
 
-  - `client_scripts`
-    > 用于存放客户端事件代码
-
-  - `server_scripts`
-    > 用于存放服务端事件代码
-
-  - `startup_scripts`
-    > 用于存放游戏启动事件代码
+>[!note]
+>
+> `/assets/<namespace>/` 路径用于存放各种游戏资源文件，例如纹理、本地化文件、音频、模型等等，其中 `<namespace>` 为命名空间。详细请查看 [我的世界Wiki](https://zh.minecraft.wiki/w/资源包#文件结构)
+>
+> `/data/<namespace>/` 路径用于存放各种游戏数据文件，例如标签、战利品表等等，其中 `<namespace>` 为命名空间。详细请查看 [我的世界Wiki](https://zh.minecraft.wiki/w/数据包#文件夹结构)
