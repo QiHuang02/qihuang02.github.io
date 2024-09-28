@@ -1,24 +1,31 @@
 import { defineNoteConfig } from "vuepress-theme-plume";
 
 export default defineNoteConfig({
-    link: '/KubeJS/',
-    dir: 'KubeJS',
+    dir: 'kubejs',
+    link: '/notes/kubejs/',
     sidebar: [
         {
-            dir: 'KubeJS',
-            text: 'KubeJS',
-            link: '/notes/KubeJS/README.md',
-            items: 'auto'
+            text: 'KubeJS 笔记',
+            items: [
+                '前言'
+            ]
         },
         {
-            dir: 'Basic',
+            prefix: 'basic',
             text: 'KubeJS 基本',
-            items: 'auto'
-        },
-        {
-            dir: 'Misc',
-            text: '杂项 & 小知识',
+            collapsed: false,
             items: 'auto'
         }
     ]
+    // sidebar: [
+    //     {
+    //         text: '前言',
+    //         link: 'foreword.md'
+    //     },
+    //     {
+    //         prefix: '/basic',
+    //         text: 'KubeJS 基本',
+    //         items: 'auto'
+    //     }
+    // ]
 })

@@ -22,7 +22,7 @@ config:
         -
           theme: alt
           text: KubeJS
-          link: /notes/KubeJS/README.md
+          link: /notes/kubejs/README.md
         -
           theme: alt
           text: Github →

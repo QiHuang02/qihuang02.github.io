@@ -13,8 +13,12 @@ export const navbar = defineNavbarConfig([
       //   link: '/notes/demo/README.md'
       // },
       {
+        text: 'Note 目录',
+        link: '/notes/README.md'
+      },
+      {
         text: 'KubeJS',
-        link: '/notes/KubeJS/README.md'
+        link: '/notes/kubejs/前言.md'
       }
     ]
   },
