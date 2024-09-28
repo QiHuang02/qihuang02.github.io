@@ -26,7 +26,7 @@ export default defineUserConfig({
        * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
        */
       // shiki: {
-      //   languages: ['shell', 'bash', 'typescript', 'javascript'],
+      //   languages: ['typescript', 'javascript'],
       //   twoslash: true,
       // },
 

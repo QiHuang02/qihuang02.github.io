@@ -15,6 +15,32 @@ export default defineNoteConfig({
             text: 'KubeJS 基本',
             collapsed: false,
             items: 'auto'
+        },
+        {
+            prefix: 'misc',
+            text: '小知识',
+            collapsed: true,
+            items: [
+                '介绍',
+                {
+                    prefix: 'item',
+                    text: 'Item',
+                    collapsed: false,
+                    items: 'auto'
+                },
+                {
+                    prefix: 'block',
+                    text: 'Block',
+                    collapsed: false,
+                    items: 'auto'
+                },
+                {
+                    prefix: 'recipe',
+                    text: 'Recipe',
+                    collapsed: false,
+                    items: 'auto'
+                }
+            ]
         }
     ]
     // sidebar: [
