@@ -14,10 +14,12 @@ export const navbar = defineNavbarConfig([
       // },
       {
         text: 'Note 目录',
+        icon: 'gg:menu-boxed',
         link: '/notes/README.md'
       },
       {
         text: 'KubeJS',
+        icon: '/images/kubejs_logo.svg',
         link: '/notes/kubejs/前言.md'
       }
     ]

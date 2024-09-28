@@ -6,6 +6,7 @@ export default defineNoteConfig({
     sidebar: [
         {
             text: 'KubeJS 笔记',
+            icon: '/images/kubejs_logo.svg',
             items: [
                 '前言'
             ]
