@@ -8,10 +8,6 @@ export const navbar = defineNavbarConfig([
   {
     text: '笔记',
     items: [
-      // {
-      //   text: '示例',
-      //   link: '/notes/demo/README.md'
-      // },
       {
         text: 'Note 目录',
         icon: 'gg:menu-boxed',
@@ -24,4 +20,36 @@ export const navbar = defineNavbarConfig([
       }
     ]
   },
+  {
+    text: '相关链接',
+    icon: '',
+    items: [
+      {
+        text: '我的世界相关',
+        icon: 'https://www.minecraft.net/etc.clientlibs/minecraftnet/clientlibs/clientlib-site/resources/favicon.ico',
+        items: [
+          {
+            text: '我的世界中文百科',
+            icon: 'https://zh.minecraft.wiki/images/Wiki.png?21467',
+            link: 'https://zh.minecraft.wiki/'
+          },
+          {
+            text: 'NeoForged',
+            icon: 'https://neoforged.net/favicon.ico',
+            link: 'https://neoforged.net/'
+          },
+          {
+            text: 'KubeJS 官方 Wiki',
+            icon: '/images/kubejs_logo.svg',
+            link: 'https://kubejs.com/'
+          },
+          {
+            text: 'MC百科',
+            icon: 'https://www.mcmod.cn/images/favicon.ico',
+            link: 'https://www.mcmod.cn/'
+          }
+        ]
+      }
+    ]
+  }
 ])
