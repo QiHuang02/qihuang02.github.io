@@ -1,6 +1,6 @@
-import { defineUserConfig } from 'vuepress'
-import { viteBundler } from '@vuepress/bundler-vite'
-import { plumeTheme } from 'vuepress-theme-plume'
+import { defineUserConfig } from 'vuepress';
+import { viteBundler } from '@vuepress/bundler-vite';
+import { plumeTheme } from 'vuepress-theme-plume';
 
 export default defineUserConfig({
   base: '/',
@@ -11,7 +11,9 @@ export default defineUserConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '16*16', href: './images/netherite_gear.svg'}],
-    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: './images/netherite_gear.svg'}]
+    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: './images/netherite_gear.svg'}],
+    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '16*16', href: './images/netherite_gear.svg'}],
+    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: './images/netherite_gear.svg'}]
   ],
 
   bundler: viteBundler(),
@@ -26,7 +28,7 @@ export default defineUserConfig({
        * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
        */
       shiki: {
-        languages: ['typescript', 'javascript', 'css'],
+        languages: ['typescript', 'javascript', 'css', 'html'],
         twoslash: true,
       },
 
