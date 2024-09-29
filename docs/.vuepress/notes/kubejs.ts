@@ -15,7 +15,19 @@ export default defineNoteConfig({
             prefix: 'basic',
             text: 'KubeJS 基本',
             collapsed: false,
-            items: 'auto'
+            items: [
+                '介绍',
+                '事件列表',
+                {
+                    prefix: 'recipe',
+                    text: '配方',
+                    collapsed: true,
+                    items: [
+                        '原版配方',
+                        '自定义配方'
+                    ]
+                }
+            ]
         },
         {
             prefix: 'misc',
@@ -44,15 +56,4 @@ export default defineNoteConfig({
             ]
         }
     ]
-    // sidebar: [
-    //     {
-    //         text: '前言',
-    //         link: 'foreword.md'
-    //     },
-    //     {
-    //         prefix: '/basic',
-    //         text: 'KubeJS 基本',
-    //         items: 'auto'
-    //     }
-    // ]
 })
