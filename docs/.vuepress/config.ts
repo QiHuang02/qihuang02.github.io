@@ -10,10 +10,10 @@ export default defineUserConfig({
   description: 'An Docs based on vuepress and written with my notes',
 
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '16*16', href: './favicon.svg'}],
-    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: './favicon.svg'}],
-    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '16*16', href: './favicon.svg'}],
-    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: './favicon.svg'}]
+    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '16*16', href: '/favicon.svg'}],
+    ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
+    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '16*16', href: '/favicon.svg'}],
+    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}]
   ],
 
   bundler: viteBundler(),

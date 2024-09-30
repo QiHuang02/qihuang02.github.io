@@ -6,7 +6,7 @@ import { notes } from './notes/notes'
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: './favicon.svg',
+  logo: '/favicon.svg',
   // your git repo url
   docsRepo: 'https://qihuang02.cn/',
   docsDir: 'docs',
