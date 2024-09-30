@@ -6,7 +6,7 @@ export default defineNoteConfig({
     sidebar: [
         {
             text: 'KubeJS 笔记',
-            icon: '/images/kubejs_logo.svg',
+            icon: 'https://kubejs.com/logo_48.png',
             items: [
                 '前言'
             ]
@@ -14,6 +14,7 @@ export default defineNoteConfig({
         {
             prefix: 'basic',
             text: 'KubeJS 基本',
+            icon: 'https://kubejs.com/logo_48.png',
             collapsed: false,
             items: [
                 '介绍',
@@ -30,11 +31,27 @@ export default defineNoteConfig({
             ]
         },
         {
+            prefix: 'project',
+            text: '项目分享',
+            icon: '/images/kubejs_logo.svg',
+            collapsed: false,
+            items: [
+                '前言',
+                'solar_panel'
+            ]
+        },
+        {
             prefix: 'misc',
             text: '小知识',
             collapsed: true,
             items: [
                 '介绍',
+                {
+                    prefix: 'basic',
+                    text: 'Basic',
+                    collapsed: false,
+                    items: 'auto'
+                },
                 {
                     prefix: 'item',
                     text: 'Item',
@@ -50,6 +67,12 @@ export default defineNoteConfig({
                 {
                     prefix: 'recipe',
                     text: 'Recipe',
+                    collapsed: false,
+                    items: 'auto'
+                },
+                {
+                    prefix: 'software',
+                    text: '软件分享',
                     collapsed: false,
                     items: 'auto'
                 }

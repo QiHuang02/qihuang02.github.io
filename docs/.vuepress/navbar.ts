@@ -15,7 +15,7 @@ export const navbar = defineNavbarConfig([
       },
       {
         text: 'KubeJS',
-        icon: '/images/kubejs_logo.svg',
+        icon: 'https://kubejs.com/logo_48.png',
         link: '/notes/kubejs/前言.md'
       }
     ]
@@ -40,7 +40,7 @@ export const navbar = defineNavbarConfig([
           },
           {
             text: 'KubeJS 官方 Wiki',
-            icon: '/images/kubejs_logo.svg',
+            icon: 'https://kubejs.com/logo_48.png',
             link: 'https://kubejs.com/'
           },
           {

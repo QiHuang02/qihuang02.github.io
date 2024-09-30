@@ -4,5 +4,7 @@ import kubejsNote from './kubejs';
 export const notes = defineNotesConfig({
 	dir: 'notes',
 	link: '/',
-	notes: [kubejsNote]
+	notes: [
+		kubejsNote,
+	]
 })
