@@ -6,7 +6,7 @@ import { notes } from './notes/notes'
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: './images/netherite_gear.svg',
+  logo: './favicon.svg',
   // your git repo url
   docsRepo: 'https://qihuang02.cn/',
   docsDir: 'docs',
@@ -36,7 +36,7 @@ export default defineThemeConfig({
   },
 
   footer: {
-    copyright: 'QiHuang02'
+    copyright: 'Copyright © 2024 - QiHuang02'
   }
 
 })
