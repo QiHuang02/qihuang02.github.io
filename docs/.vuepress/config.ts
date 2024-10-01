@@ -13,7 +13,10 @@ export default defineUserConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '16*16', href: '/favicon.svg'}],
     ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
     ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '16*16', href: '/favicon.svg'}],
-    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}]
+    ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
+    ['link', { rel: "preconnect", href: "https://fonts.googleapis.com"}],
+    ['link', { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: ""}],
+    ['link', { href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap", rel: "stylesheet"}]
   ],
 
   bundler: viteBundler(),

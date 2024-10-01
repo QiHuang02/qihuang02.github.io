@@ -29,6 +29,38 @@
   --vp-code-block-bg: #f6f8fa;                        /* 代码块背景 */
 }
 
+/**
+ * Typography
+ * -------------------------------------------------------------------------- */
+ :root {
+  --vp-font-family-base:
+    "Chinese Quotes",
+    inter,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --vp-font-family-mono:
+    "JetBrains Mono",
+    ui-monospace,
+    sfmono-regular,
+    menlo,
+    monaco,
+    consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+
+  font-optical-sizing: auto;
+}
+
 [data-theme="dark"] {
 
   /**
