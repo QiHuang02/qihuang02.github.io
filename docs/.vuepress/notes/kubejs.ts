@@ -37,7 +37,8 @@ export default defineNoteConfig({
             collapsed: false,
             items: [
                 '前言',
-                'solar_panel'
+                'solar_panel',
+                'emendatusenigmaticajs'
             ]
         },
         {
