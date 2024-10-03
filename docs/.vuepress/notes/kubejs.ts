@@ -27,6 +27,17 @@ export default defineNoteConfig({
                         '原版配方',
                         '自定义配方'
                     ]
+                },
+                {
+                    prefix: 'registry',
+                    text: '注册',
+                    collapsed: true,
+                    items: [
+                        'Item',
+                        'Block',
+                        'Fluid',
+                        'Other'
+                    ]
                 }
             ]
         },
