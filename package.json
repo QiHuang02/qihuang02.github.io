@@ -21,7 +21,7 @@
     "http-server": "^14.1.1",
     "vue": "^3.5.10",
     "vuepress": "2.0.0-rc.17",
-    "vuepress-theme-plume": "1.0.0-rc.105"
+    "vuepress-theme-plume": "1.0.0-rc.106"
   },
   "dependencies": {
     "@iconify/json": "^2.2.255"
