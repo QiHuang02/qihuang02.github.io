@@ -1,5 +1,48 @@
 ---
-title: Item
+title: 自定义Item
 createTime: 2024/10/03 23:00:55
 permalink: /notes/kubejs/basic/registry/item/
 ---
+
+## 基本语法
+
+```JS
+StartupEvents.registry('item', (event) => {
+    event.create(name, type)
+});
+```
+
+## 函数
+
+这里的`event.create(name, type)`可以通过链式调用为物品添加更多的属性，对于魔改来说十分方便。以下是一些可以进行链式调用的函数。
+
+::: details 点我查看更多
+
+WIP
+
+:::
+
+## 参数解释
+
+`name` 物品的物品的id
+
+`type` 物品的类型
+
+::: details 点我查看更多
+
+|type|描述|
+|:-:|:-:|
+|sword|剑|
+|pickaxe|镐|
+|axe|斧|
+|shovel|铲|
+|hoe|锄|
+|shears|剪刀|
+|helmet|头盔|
+|chestplate|胸甲|
+|legging|护腿|
+|boots|鞋子|
+|animal_armor|动物装甲|
+|smithing_template|锻造模板|
+
+:::
