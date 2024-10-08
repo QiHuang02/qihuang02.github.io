@@ -1,5 +1,5 @@
 ---
-title: 自定义Item
+title: Item Registry
 createTime: 2024/10/03 23:00:55
 permalink: /notes/kubejs/basic/registry/item/
 ---
@@ -14,11 +14,36 @@ StartupEvents.registry('item', (event) => {
 
 ## 函数
 
-这里的`event.create(name, type)`可以通过链式调用为物品添加更多的属性，对于魔改来说十分方便。以下是一些可以进行链式调用的函数。
+这里的`event.create(name, type)`可以通过链式调用为物品添加更多的属性，这对于魔改来说十分方便。以下是一些可以进行链式调用的函数。
 
 ::: details 点我查看更多
 
-WIP
+- `name()`
+- `component()`
+- `use()`
+- `color()`
+- `maxStackSize()`
+- `subtypes`
+- `createItemProperties()`
+- `useDuration`
+- `hurtEnemy`
+- `food`
+- `disableRepair`
+- `useAnimation`
+- `unstackable`
+- `containerItem`
+- `burnTime`
+- `maxDamage`
+- `releaseUsing`
+- `jukeboxPlayable`
+- `finishUsing`
+- `fireResistant`
+- `rarity`
+- `barColor`
+- `tooltip`
+- `barWidth`
+- `glow`
+- `transformObject`
 
 :::
 
