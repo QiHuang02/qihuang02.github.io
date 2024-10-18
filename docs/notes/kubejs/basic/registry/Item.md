@@ -25,25 +25,25 @@ StartupEvents.registry('item', (event) => {
 - `maxStackSize()`
 - `subtypes`
 - `createItemProperties()`
-- `useDuration`
-- `hurtEnemy`
-- `food`
-- `disableRepair`
-- `useAnimation`
-- `unstackable`
-- `containerItem`
-- `burnTime`
-- `maxDamage`
-- `releaseUsing`
-- `jukeboxPlayable`
-- `finishUsing`
-- `fireResistant`
-- `rarity`
-- `barColor`
-- `tooltip`
-- `barWidth`
-- `glow`
-- `transformObject`
+- `useDuration()`
+- `hurtEnemy()`
+- `food()`
+- `disableRepair()`
+- `useAnimation()`
+- `unstackable()`
+- `containerItem()`
+- `burnTime()`
+- `maxDamage()`
+- `releaseUsing()`
+- `jukeboxPlayable()`
+- `finishUsing()`
+- `fireResistant()`
+- `rarity()`
+- `barColor()`
+- `tooltip()`
+- `barWidth()`
+- `glow()`
+- `transformObject()`
 
 :::
 

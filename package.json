@@ -17,13 +17,13 @@
     "vp-update": "vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.17",
+    "@vuepress/bundler-vite": "2.0.0-rc.18",
     "http-server": "^14.1.1",
-    "vue": "^3.5.11",
-    "vuepress": "2.0.0-rc.17",
-    "vuepress-theme-plume": "1.0.0-rc.107"
+    "vue": "^3.5.12",
+    "vuepress": "2.0.0-rc.18",
+    "vuepress-theme-plume": "1.0.0-rc.111"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.258"
+    "@iconify/json": "^2.2.261"
   }
 }
