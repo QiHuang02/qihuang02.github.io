@@ -8,7 +8,7 @@ permalink: /notes/kubejs/project/emendatusenigmaticajs/
 
 EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github.io/projects/omniworld/)，但是Omniworld目前任然停留在1.20.1，于是我修改了部分代码，将其带到1.21。
 
-需要更多资源请请查看[我的仓库](https://github.com/QiHuang02/StellarisSpace)
+需要更多资源请查看[我的仓库](https://github.com/QiHuang02/StellarisSpace)
 
 > [!warning]
 >

@@ -11,7 +11,7 @@ export default defineThemeConfig({
   docsRepo: 'https://qihuang02.cn/',
   docsDir: 'docs',
 
-  appearance: 'force-dark',
+  appearance: 'dark',
   aside: true,
 
   profile: {
