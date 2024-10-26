@@ -12,7 +12,7 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 
 > [!warning]
 >
-> 目前任然处于WIP状态
+> 目前仍然处于WIP状态
 >
 > ToDoList：
 >

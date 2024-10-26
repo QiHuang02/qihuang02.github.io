@@ -5,4 +5,6 @@ permalink: /notes/
 ---
 ## 这里将会作为 Note 的目录
 
-## [KubeJS 笔记](./kubejs/前言.md)
+<CardGrid>
+    <LinkCard icon="https://kubejs.com/logo_48.png" title="KubeJS" href="/notes/kubejs/前言" />
+</CardGrid>

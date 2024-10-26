@@ -49,6 +49,17 @@ export const navbar = defineNavbarConfig([
             link: 'https://www.mcmod.cn/'
           }
         ]
+      },
+      {
+        text: '实用网站',
+        icon: 'fluent:virtual-network-toolbox-20-filled',
+        items: [
+          {
+            text: 'Sci-hub',
+            icon: 'https://img.gufenxueshu.net/favicon.ico',
+            link: 'https://gfsoso.99lb.net/sci-hub.html'
+          }
+        ]
       }
     ]
   }
