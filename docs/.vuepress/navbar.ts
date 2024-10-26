@@ -9,7 +9,7 @@ export const navbar = defineNavbarConfig([
     text: '笔记',
     items: [
       {
-        text: 'Note 目录',
+        text: 'Note Catalogue',
         icon: 'gg:menu-boxed',
         link: '/notes/README.md'
       },
@@ -17,6 +17,11 @@ export const navbar = defineNavbarConfig([
         text: 'KubeJS',
         icon: 'https://kubejs.com/logo_48.png',
         link: '/notes/kubejs/前言.md'
+      },
+      {
+        text: 'Git',
+        icon: 'fa6-brands:square-git',
+        link: '/notes/git/git_command.md'
       }
     ]
   },
