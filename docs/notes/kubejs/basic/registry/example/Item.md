@@ -2,9 +2,10 @@
 title: 物品
 createTime: 2024/10/26 20:50:54
 permalink: /notes/kubejs/basic/registry/example/item/
+outline: [2,6]
 ---
 
-## ==添加唱片==
+## ==自定义音频 & 唱片==
 
 在这里将会说明如何创建一个可以播放自定义音频的唱片。这里提到的JS代码将会被放于`startup_scripts`和`server_scripts`文件夹下。
 
