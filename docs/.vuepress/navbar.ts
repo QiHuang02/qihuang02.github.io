@@ -9,7 +9,7 @@ export const navbar = defineNavbarConfig([
     text: '笔记',
     items: [
       {
-        text: 'Note Catalogue',
+        text: 'Catalogue',
         icon: 'gg:menu-boxed',
         link: '/notes/README.md'
       },

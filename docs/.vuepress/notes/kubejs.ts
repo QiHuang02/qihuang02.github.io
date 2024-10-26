@@ -36,7 +36,15 @@ export default defineNoteConfig({
                         'Item',
                         'Block',
                         'Fluid',
-                        'Other'
+                        'Other',
+                        {
+                            prefix: 'example',
+                            text: '例子',
+                            collapsed: true,
+                            items: [
+                                'Item'
+                            ]
+                        }
                     ]
                 }
             ]
