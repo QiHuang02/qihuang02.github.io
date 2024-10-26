@@ -2,7 +2,6 @@
 title: 物品
 createTime: 2024/10/03 23:00:55
 permalink: /notes/kubejs/basic/registry/item/
-outline: [2,6]
 ---
 
 ::: tip
@@ -27,8 +26,8 @@ StartupEvents.registry('item', (event) => {
 
 |==\$BuilderBase<$Item>方法==|描述|
 |:-|:-:|
-|`displayName(string)`|为物品设置名称，当存在lang文件时会被覆盖|
-|`tag(string)`|为物品添加标签,例如 `minecraft:stone`|
+|`displayName($Component$$Type)`|为物品设置名称，当存在lang文件时会被覆盖|
+|`tag($ResourceLocation$$Type)`|为物品添加标签,例如 `minecraft:stone`|
 |`translationKey(string)`|为物品设置翻译键,例如 `block.minecraft.stone`|
 |==$ItemBuilder方法==|描述|
 |`use($ItemBuilder$UseCallback$$Type)`|判断玩家是否开始使用该物品|
