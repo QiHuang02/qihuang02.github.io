@@ -47,7 +47,7 @@ StartupEvents.registry('block', (event) => {
 });
 ```
 
-你会发现这仅仅是注册了一个具有方块实体的方块，但是他不具备生成能量的作用，因此我们需要为它添加相应的功能。我选择监听该太阳能发电机的tiki事件。
+你会发现这仅仅是注册了一个具有方块实体的方块，但是他不具备生成能量的作用，因此我们需要为它添加相应的功能。我选择监听该太阳能发电机的tick事件。
 
 ```JS
 BlockEvents.blockEntityTick('<namecpace>:solar_panel', (event) => {
