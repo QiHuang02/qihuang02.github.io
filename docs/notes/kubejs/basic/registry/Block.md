@@ -1,5 +1,5 @@
 ---
-title: 方块
+title: 方块注册
 createTime: 2024/10/03 23:01:02
 permalink: /notes/kubejs/basic/registry/block/
 ---
@@ -71,7 +71,7 @@ StartupEvents.registry('block', (event) => {
 |slab|台阶|
 |stairs|楼梯|
 |fence|栅栏|
-|wall|锄|
+|wall|墙|
 |fence_gate|栅栏门|
 |pressure_plate|压力板|
 |button|按钮|
