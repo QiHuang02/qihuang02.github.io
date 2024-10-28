@@ -42,13 +42,30 @@ export default defineNoteConfig({
                             text: '例子',
                             collapsed: true,
                             items: [
-                                'Item'
+                                'Item',
+                                'Block'
                             ]
                         }
                     ]
                 }
             ]
         },
+        // {
+        //     prefix: 'addons',
+        //     text: 'KubeJS附属',
+        //     icon: 'https://kubejs.com/logo_48.png',
+        //     collapsed: false,
+        //     items: [
+        //         {
+        //             prefix: 'LootJS',
+        //             text: 'LootJS',
+        //             collapsed: true,
+        //             items: [
+        //                 Introduction
+        //             ]
+        //         }
+        //     ]
+        // },
         {
             prefix: 'project',
             text: '项目分享',
