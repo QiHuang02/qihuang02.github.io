@@ -1,5 +1,5 @@
 ---
-title: 物品
+title: 物品注册
 createTime: 2024/10/03 23:00:55
 permalink: /notes/kubejs/basic/registry/item/
 ---
@@ -36,7 +36,7 @@ StartupEvents.registry('item', (event) => {
 |`maxStackSize()`|设置物品的最大堆叠数量。默认值为 64|
 |`useDuration($ToIntBiFunction$$Type<($ItemStack), ($LivingEntity)>)`|物品使用的时间长度。例如，在进食食物时，这是进食食物所需的时间。这可以改变进食速度，或用于其他用途（如制作自定义弓）。|
 |`hurtEnemy($Predicate$$Type<($ItemBuilder$HurtEnemyContext)>)`|当物品被用来伤害实体时被调用。|
-|`food(integer, float)`|设置物品的饱和度和饱食度|
+|`food(integer, float)`|设置物品的营养值和饱食度|
 |`food($Consumer$$Type<($FoodBuilder)>)`|设置物品的食品属性|
 |`disableRepair()`|设置物品为不可修复|
 |`useAnimation($UseAnim$$Type)`|确定使用该物品时的动画效果，例如吃食物时的动画|
