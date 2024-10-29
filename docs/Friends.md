@@ -41,4 +41,12 @@ groups:
         name: MC百科
         link: https://www.mcmod.cn/
         avatar: https://www.mcmod.cn/images/favicon.ico
+  - 
+    title: 博客主题
+    list:
+      -
+        name: Vuepress-theme-plume
+        link: https://theme-plume.vuejs.press/
+        avatar: https://theme-plume.vuejs.press/favicon-16x16.png
+        desc: 一个简约易用的，功能丰富的 vuepress 文档&博客 主题.
 ---
