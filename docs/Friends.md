@@ -41,12 +41,20 @@ groups:
         name: MC百科
         link: https://www.mcmod.cn/
         avatar: https://www.mcmod.cn/images/favicon.ico
+      -
+        name: CurseForge Minecraft 专区
+        link: https://www.curseforge.com/minecraft
+        avatar: https://static-beta.curseforge.com/images/favicon.ico
+      -
+        name: Modrinth
+        link: https://modrinth.com/
+        avatar: https://modrinth.com/favicon.ico
   - 
     title: 博客主题
     list:
       -
         name: Vuepress-theme-plume
         link: https://theme-plume.vuejs.press/
-        avatar: https://theme-plume.vuejs.press/favicon-16x16.png
+        avatar: https://theme-plume.vuejs.press/favicon-32x32.png
         desc: 一个简约易用的，功能丰富的 vuepress 文档&博客 主题.
 ---
