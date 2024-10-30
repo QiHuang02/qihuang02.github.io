@@ -15,7 +15,7 @@ export default defineThemeConfig({
   contributorsText: '贡献者',
 
   editLink: true,
-  editLinkText: '编辑此页',
+  editLinkText: '发现错误？请点击此帮助我修改它',
 
   appearance: 'dark',
   aside: true,
