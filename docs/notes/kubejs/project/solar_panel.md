@@ -4,7 +4,10 @@ createTime: 2024/09/30 18:16:09
 permalink: /notes/kubejs/project/solar_panel/
 ---
 
-<img src='/images/solar_panel.png' alt='Solar Panel' width='500' height='500'>
+<ImageCard
+    image='/images/solar_panel.png'
+    title="Solar Panel"
+/>
 
 想要使用KubeJS制作一个图中这样的太阳能发电机，我们得先解决几个问题
 
