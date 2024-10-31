@@ -5,7 +5,7 @@ import { plumeTheme } from 'vuepress-theme-plume';
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: 'QiHuang02的文档站',
+  title: '首页',
   
   description: 'An Docs based on vuepress and written with my notes',
 
