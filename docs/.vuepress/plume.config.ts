@@ -22,8 +22,8 @@ export default defineThemeConfig({
 
   profile: {
     avatar: './images/avatar.svg',
-    name: 'QiHuang02 Docs',
-    description: '一个使用Vuepress的文档站，用于存放一些我自己的笔记和小研究',
+    name: 'QiHuang02 的笔记本',
+    description: '这里存放了我的研究笔记',
     // circle: true,
     // location: '',
     // organization: '',
