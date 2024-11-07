@@ -15,7 +15,7 @@ export const navbar = defineNavbarConfig([
       },
       {
         text: 'KubeJS',
-        icon: 'https://kubejs.com/logo_48.png',
+        icon: 'https://kubejs.com/img/logo/48.png',
         link: '/notes/kubejs/前言.md'
       },
       {
@@ -26,6 +26,7 @@ export const navbar = defineNavbarConfig([
     ]
   },
   { text: '联结', link: '/Friends.md'},
+  { text: '图床', link: 'https://image.qihuang02.cn/'}
   // {
   //   text: '相关链接',
   //   icon: '',

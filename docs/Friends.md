@@ -36,7 +36,7 @@ groups:
       -
         name: KubeJS
         link: https://kubejs.com/
-        avatar: https://kubejs.com/logo_48.png
+        avatar: https://kubejs.com/img/logo/48.png
       -
         name: MC百科
         link: https://www.mcmod.cn/
