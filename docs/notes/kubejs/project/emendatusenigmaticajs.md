@@ -16,9 +16,9 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 >
 > ToDoList：
 >
-> - [ ] 修复Ore类型的模型和纹理问题
+> - [x] 修复Ore类型的模型和纹理问题
 > - [x] 自动创建Ore类型的LootTable文件
-> - [ ] 修改Block类型的纹理设置
+> - [x] 修改Block类型的纹理设置
 > - [x] 添加粗矿物及其方块的注册
 > - [x] 添加锭、宝石、粒、板、棒、齿轮等物品的注册
 > - [x] 添加对Mekanism的支持
@@ -210,13 +210,13 @@ const OreLootJson = (block, item, sequence, min, max) => ({
             ],
             "rolls": 1.0
         }
-      ],
+    ],
     "random_sequence": sequence
 });
 
 function createModelOre(name, strata) {
     let model = JsonIO.read(`${paths.models.block}${name}_ore_${strata}.json`) || {};
-    if(model.parent === undefined) {
+    if (model.parent === undefined) {
         console.log(`No block model found, creating new: ${name}_ore_${strata}.json`);
         JsonIO.write(
             `${paths.models.block}${name}_ore_${strata}.json`,
@@ -288,23 +288,24 @@ EmendatusEnigmaticaJS.prototype = {
         let drop = this.drop;
 
         processedTypes.forEach((ptypes) => {
-            switch(ptypes) {
+            switch (ptypes) {
                 case 'ore':
                     registryOre(name, strata, harvestLevel, color, type, drop);
                     break;
                 case 'raw':
-                    registryRaw(name,color);
+                    registryRaw(name, color);
+                    break;
+                case 'storage_block':
+                    registrySBlock(name, type, ptypes, burnTime, color);
                     break;
                 case 'ingot':
                 case 'gem':
-                    registryWithBlock(ptypes, name, color, burnTime, gemTemplate, processedTypes);
-                    break;
                 case 'dust':
                 case 'gear':
                 case 'nugget':
                 case 'plate':
                 case 'rod':
-                    registryItem(ptypes, name, color, burnTime);
+                    registryItem(ptypes, name, color, burnTime, gemTemplate);
                     break;
                 case 'mekanism':
                     registryMek(name, color);
@@ -331,28 +332,71 @@ EmendatusEnigmaticaJS.prototype = {
  * @param {String} drop
  */
 function registryOre(name, strata, harvestLevel, color, type, drop) {
-    strata.forEach((strata) => {
+    strata.forEach((s) => {
         StartupEvents.registry('block', (event) => {
-            let ore = event.create(`${global.modid}:${name}_ore_${strata}`)
-            .modelGenerator((model) => {
-                model.parent(`${global.EE_STRATAS[strata].texture}`)
-                // model.texture()
+            let builder = event.create(`${global.modid}:${name}_ore_${s}`);
+
+            builder.modelGenerator((model) => {
+                model.parent(`${global.EE_STRATAS[s].texture}`)
+                model.texture(`layer0`, `${global.modid}:block/templates/ore/${type}/00`)
+                model.texture(`layer1`, `${global.modid}:block/templates/ore/${type}/01`)
+                model.texture(`layer2`, `${global.modid}:block/templates/ore/${type}/02`)
+                model.texture(`layer3`, `${global.modid}:block/templates/ore/${type}/03`)
+                model.texture(`layer4`, `${global.modid}:block/templates/ore/${type}/04`)
+                model.texture(`${s}`, `${global.EE_STRATAS[s].texture}`)
+                model.element((element) => {
+                    element.allFaces((base) => {
+                        base.uv(0, 0, 16, 16).tex(`${s}`)
+                    })
+                })
+                model.element((element) => {
+                    element.allFaces((face_layer0) => {
+                        face_layer0.uv(0, 0, 16, 16).tex('layer0').tintindex(0)
+                    })
+                })
+                model.element((element) => {
+                    element.allFaces((face_layer1) => {
+                        face_layer1.uv(0, 0, 16, 16).tex('layer1').tintindex(1)
+                    })
+                })
+                model.element((element) => {
+                    element.allFaces((face_layer2) => {
+                        face_layer2.uv(0, 0, 16, 16).tex('layer2').tintindex(2)
+                    })
+                })
+                model.element((element) => {
+                    element.allFaces((face_layer3) => {
+                        face_layer3.uv(0, 0, 16, 16).tex('layer3').tintindex(3)
+                    })
+                })
+                model.element((element) => {
+                    element.allFaces((face_layer4) => {
+                        face_layer4.uv(0, 0, 16, 16).tex('layer4').tintindex(4)
+                    })
+                })
             })
-            .color(0, '#b8945f')
-            .parentModel(`${global.modid}:block/ore/${strata}`)
-            .renderType('cutout')
-            .hardness(global.EE_STRATAS[strata].resistance)
-            .soundType(SoundType.STONE)
-            .requiresTool(true)
-            .tagBoth('c:ores')
-            .tagBoth(`c:ores/${name}`)
-            .tagBoth(`c:ore_rates/singular`)
-            .tagBlock(`minecraft:mineable/${global.EE_STRATAS[strata].tool}`)
-            .tagBlock(`c:mineable/paxel`)
-            .tagBlock(`minecraft:needs_${harvestLevel}_tool`)
-            .tagBoth(`c:ores_in_ground/${strata}`)
-            // createModelOre(name, strata);
-            createLootOre(name, strata, drop);
+
+            if (color) {
+                for (let i = 0; i < color.length; i++) {
+                    builder.color(i, color[i]);
+                    builder.item(item => {
+                        item.color(i, color[i])
+                    })
+                };
+            }
+
+            builder.renderType("cutout")
+                .hardness(global.EE_STRATAS[s].resistance)
+                .soundType(SoundType.STONE)
+                .requiresTool(true)
+                .tagBoth('c:ores')
+                .tagBoth(`c:ores/${name}`)
+                .tagBoth(`c:ore_rates/singular`)
+                .tagBlock(`minecraft:mineable/${global.EE_STRATAS[s].tool}`)
+                .tagBlock(`c:mineable/paxel`)
+                .tagBlock(`minecraft:needs_${harvestLevel}_tool`)
+
+            createLootOre(name, s, drop);
         })
     })
 }
@@ -368,16 +412,51 @@ function registryRaw(name, color) {
             .tag('c:raw_materials')
             .tag(`c:raw_materials/${name}`)
 
-            if(color) {
-                for (let i = 0; i < color.length; i++) {
-                    builder.texture(`layer${i}`, `${global.modid}:item/templates/raw/0${i}`)
-                        .color(i, color[i]);
-                }
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.texture(`layer${i}`, `${global.modid}:item/templates/raw/0${i}`)
+                    .color(i, color[i]);
             }
+        }
     });
     StartupEvents.registry('block', (event) => {
         let builder = event.create(`${global.modid}:raw_${name}_block`)
-            .texture(`${global.modid}:block/overlays/raw_${name}_block`)
+
+        builder.modelGenerator((model) => {
+            model.parent('minecraft:block/raw_iron_block')
+            model.texture(`layer0`, `${global.modid}:block/templates/raw_block/00`)
+            model.texture(`layer1`, `${global.modid}:block/templates/raw_block/01`)
+            model.texture(`layer2`, `${global.modid}:block/templates/raw_block/02`)
+            model.texture(`layer3`, `${global.modid}:block/templates/raw_block/03`)
+            model.texture(`layer4`, `${global.modid}:block/templates/raw_block/04`)
+            model.element((element) => {
+                element.allFaces((face_layer0) => {
+                    face_layer0.uv(0, 0, 16, 16).tex('layer0').tintindex(0)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer1) => {
+                    face_layer1.uv(0, 0, 16, 16).tex('layer1').tintindex(1)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer2) => {
+                    face_layer2.uv(0, 0, 16, 16).tex('layer2').tintindex(2)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer3) => {
+                    face_layer3.uv(0, 0, 16, 16).tex('layer3').tintindex(3)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer4) => {
+                    face_layer4.uv(0, 0, 16, 16).tex('layer4').tintindex(4)
+                })
+            })
+        })
+
+        builder.renderType('cutout')
             .tagBoth('c:storage_blocks')
             .tagBoth(`c:storage_blocks/raw_${name}`)
             .tagBlock('minecraft:mineable/pickaxe')
@@ -385,95 +464,145 @@ function registryRaw(name, color) {
             .requiresTool(true)
             .hardness(3)
             .resistance(3);
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.color(i, color[i])
+                builder.item(item => {
+                    item.color(i, color[i])
+                })
+            }
+        }
     });
 };
 
-/**
- * 
- * @param {String} type 
- * @param {String} name Material's name.
- * @param {String[]} color Color array of materials. It can only have 5 colors, likes this: ['#393e46', '#2e2e2e', '#261e24', '#1f1721', '#1c1c1e']
- * @param {Number} burnTime It can be a specific number or undefined 
- * @param {Number} gemTemplate If the type of a material is a gem, 
- * then there must be a value to specify the texture of the material, which is a specific number, from 1 to 10.
- * @param {String} processedTypes All processed types of one material.
- */
-function registryWithBlock(type, name, color, burnTime, gemTemplate, processedTypes) {
-    StartupEvents.registry('item', (event) => {
-        let builder = event.create(`${global.modid}:${name}_${type}`)
-            .tag(`c:${type}s`)
-            .tag(`c:${type}s/${name}`)
 
-            if (burnTime) builder.burnTime(burnTime)
-            if (color) {
-                switch(type) {
-                    case 'ingot':
-                        for (let i = 0; i < color.length; i++) {
-                            builder.texture(`layer${i}`, `${global.modid}:item/templates/${type}/0${i}`)
-                            .color(i, color[i]);
-                        };
-                        break;
-                    case 'gem':
-                        if (gemTemplate > -1 && color) {
-                        for (let i = 0; i < color.length; i++) {
-                            builder.texture(`layer${i}`, `${global.modid}:item/templates/gem/template_${gemTemplate}/0${i}`)
-                            .color(i, color[i]);
-                            }
-                        };
-                        break;
-                }
+/**
+ * Description placeholder
+ *
+ * @param {*} name
+ * @param {*} type
+ * @param {*} ptypes
+ * @param {*} burnTime
+ * @param {*} color
+ */
+function registrySBlock(name, type, ptypes, burnTime, color) {
+    StartupEvents.registry('block', (event) => {
+        let builder = event.create(`${global.modid}:${name}_block`);
+
+        builder.modelGenerator((model) => {
+            model.parent('minecraft:block/iron_block')
+            if (type === 'metal' | type === 'alloy') {
+                model.texture(`layer0`, `${global.modid}:block/templates/block/metal/00`)
+                model.texture(`layer1`, `${global.modid}:block/templates/block/metal/01`)
+                model.texture(`layer2`, `${global.modid}:block/templates/block/metal/02`)
+                model.texture(`layer3`, `${global.modid}:block/templates/block/metal/03`)
+                model.texture(`layer4`, `${global.modid}:block/templates/block/metal/04`)
+            } else if (type === 'gem') {
+                model.texture(`layer0`, `${global.modid}:block/templates/block/gem/00`)
+                model.texture(`layer1`, `${global.modid}:block/templates/block/gem/01`)
+                model.texture(`layer2`, `${global.modid}:block/templates/block/gem/02`)
+                model.texture(`layer3`, `${global.modid}:block/templates/block/gem/03`)
+                model.texture(`layer4`, `${global.modid}:block/templates/block/gem/04`)
+            }
+
+            model.element((element) => {
+                element.allFaces((face_layer0) => {
+                    face_layer0.uv(0, 0, 16, 16).tex('layer0').tintindex(0)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer1) => {
+                    face_layer1.uv(0, 0, 16, 16).tex('layer1').tintindex(1)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer2) => {
+                    face_layer2.uv(0, 0, 16, 16).tex('layer2').tintindex(2)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer3) => {
+                    face_layer3.uv(0, 0, 16, 16).tex('layer3').tintindex(3)
+                })
+            })
+            model.element((element) => {
+                element.allFaces((face_layer4) => {
+                    face_layer4.uv(0, 0, 16, 16).tex('layer4').tintindex(4)
+                })
+            })
+        })
+
+        builder.renderType('cutout')
+            .tagBoth('c:storage_blocks')
+            .tagBoth(`c:storage_blocks/${name}`)
+            .tagBlock('minecraft:mineable/pickaxe')
+            .soundType(SoundType.METAL)
+            .requiresTool(true)
+            .hardness(3)
+            .resistance(3)
+
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                builder.color(i, color[i])
+                builder.item(item => {
+                    item.color(i, color[i])
+                })
             }
         }
-    )
-    if (processedTypes.includes('storage_block')){
-        StartupEvents.registry('block', (event) => {
-            let builder = event.create(`${global.modid}:${name}_block`)
-                .texture(`${global.modid}:block/overlays/${name}_block`)
-                .tagBoth('c:storage_blocks')
-                .tagBoth(`c:storage_blocks/${name}`)
-                .tagBlock('minecraft:mineable/pickaxe')
-                .soundType(SoundType.METAL)
-                .requiresTool(true)
-                .hardness(3)
-                .resistance(3)
 
-                if (burnTime) 
-                    builder.item(i => {
-                        i.burnTime(burnTime * 10)
-                    builder.tagBoth('fuelgoeshere:forced_fuels')
-                });
-            }
-        );
-    }
-};
+        if (burnTime) {
+            builder.item(i => {
+                i.burnTime(burnTime * 10)
+            })
+            builder.tagBoth('fuelgoeshere:forced_fuels')
+        }
+    })
+}
 
 /**
  * 
- * @param {String} type 
+ * @param {String} ptypes 
  * @param {String} name Material's name.
  * @param {String[]} color Color array of materials. It can only have 5 colors, likes this: ['#393e46', '#2e2e2e', '#261e24', '#1f1721', '#1c1c1e']
  * @param {Number} burnTime The combustion value of the material.
  */
-function registryItem(type, name, color, burnTime) {
+function registryItem(ptypes, name, color, burnTime, gemTemplate) {
     StartupEvents.registry('item', (event) => {
-        let builder = event.create(`${global.modid}:${name}_${type}`)
-            .tag(`c:${type}s`)
-            .tag(`c:${type}s/${name}`);
-        
-            if (burnTime) {
-                builder.burnTime(burnTime)
-                builder.tag('fuelgoeshere:forced_fuels')
-            };
-            if (color) {
-                for (let i = 0; i < color.length; i++) {
-                    builder.texture(`layer${i}`, `${global.modid}:item/templates/${type}/0${i}`)
-                    .color(i, color[i]);
+        let builder = event.create(`${global.modid}:${name}_${ptypes}`)
+            .tag(`c:${ptypes}s`)
+            .tag(`c:${ptypes}s/${name}`);
+
+        if (burnTime) {
+            builder.burnTime(burnTime)
+            builder.tag('fuelgoeshere:forced_fuels')
+        };
+        if (color) {
+            for (let i = 0; i < color.length; i++) {
+                if (ptypes === 'gem') {
+                    if (name === 'coal_coke') {
+                        builder.texture(`${global.modid}:item/coal_coke_gem`)
+                    } else {
+                        builder.texture(`layer${i}`, `${global.modid}:item/templates/gem/template_${gemTemplate}/0${i}`)
+                            .color(i, color[i])
+                    }
+                } else {
+                    builder.texture(`layer${i}`, `${global.modid}:item/templates/${ptypes}/0${i}`)
+                        .color(i, color[i]);
                 }
             }
         }
+    }
     );
 };
 
+
+/**
+ * Description placeholder
+ *
+ * @param {*} name
+ * @param {*} color
+ */
 function registryMek(name, color) {
     StartupEvents.registry('item', (event) => {
         let crystal = event.create(`${global.modid}:${name}_crystal`).tag('mekanism:crystals').tag(`mekanism:crystals/${name}`)
@@ -481,21 +610,28 @@ function registryMek(name, color) {
         let clump = event.create(`${global.modid}:${name}_clump`).tag('mekanism:clumps').tag(`mekanism:clumps/${name}`)
         let dirtyDust = event.create(`${global.modid}:${name}_dirty_dust`).tag('mekanism:dirty_dusts').tag(`mekanism:dirty_dusts/${name}`)
 
-        if(color) {
+        if (color) {
             for (let i = 0; i < color.length; i++) {
                 crystal.texture(`layer${i}`, `${global.modid}:item/templates/crystal/0${i}`)
-                .color(i, color[i]);
+                    .color(i, color[i]);
                 shard.texture(`layer${i}`, `${global.modid}:item/templates/shard/0${i}`)
-                .color(i, color[i]);
+                    .color(i, color[i]);
                 clump.texture(`layer${i}`, `${global.modid}:item/templates/clump/0${i}`)
-                .color(i, color[i]);
+                    .color(i, color[i]);
                 dirtyDust.texture(`layer${i}`, `${global.modid}:item/templates/dirty_dust/0${i}`)
-                .color(i, color[i]);
+                    .color(i, color[i]);
             }
         }
     });
 };
 
+
+/**
+ * Description placeholder
+ *
+ * @param {*} name
+ * @param {*} color
+ */
 function registryBlood(name, color) {
     StartupEvents.registry('item', (event) => {
         let fragment = event.create(`${global.modid}:${name}_fragment`).tag('bloodmagic:fragments').tag(`bloodmagic:fragments/${name}`);
@@ -504,24 +640,31 @@ function registryBlood(name, color) {
         if (color) {
             for (let i = 0; i < color.length; i++) {
                 fragment.texture(`layer${i}`, `${global.modid}:item/templates/fragment/0${i}`)
-                .color(i, color[i]);
+                    .color(i, color[i]);
                 gravel.texture(`layer${i}`, `${global.modid}:item/templates/gravel/0${i}`)
-                .color(i, color[i]);
+                    .color(i, color[i]);
             }
         }
     })
 };
 
+
+/**
+ * Description placeholder
+ *
+ * @param {*} name
+ * @param {*} color
+ */
 function registryCrush(name, color) {
     StartupEvents.registry('item', (event) => {
         let builder = event.create(`${global.modid}:${name}_crushed_ore`)
             .tag('create:crushed_raw_materials')
             .tag(`create:crushed_raw_materials/${name}`)
-        
-        if(this.color) {
+
+        if (this.color) {
             for (let i = 0; i < color.length; i++) {
                 builder.texture(`layer${i}`, `${global.modid}:item/templates/crushed_ore/0${i}`)
-                .color(i, color[i]);
+                    .color(i, color[i]);
             };
         }
     });
@@ -536,7 +679,7 @@ function registryCrush(name, color) {
 // Material.js
 // priority: 197
 
-let commonStratas = ['andesite', 'diorite', 'granite' ,'stone', 'deepslate', 'netherrack', 'end_stone'];
+let commonStratas = ['stone', 'andesite', 'diorite', 'granite', 'deepslate', 'netherrack', 'end_stone'];
 let vanillaComplementStratas = ['netherrack', 'end_stone'];
 
 /**
@@ -820,21 +963,21 @@ global.EE_MATERIALS = [
     // Wood
     {
         name: 'wood',
-        type: 'dust',
+        type: 'misc',
         processedTypes: ['dust', 'storage_block'],
         color: ['#b8945f', '#987849', '#745a36', '#5f4a2b', '#4c3d26']
     },
     // Ender Pearl
     {
         name: 'ender_pearl',
-        type: 'dust',
+        type: 'misc',
         processedTypes: ['dust', 'storage_block'],
         color: ['#8cf4e2', '#349988', '#0c3730', '#0b4d42', '#063931']
     },
     // Coal Coke
     {
         name: 'coal_coke',
-        type: 'gem',
+        type: 'misc',
         processedTypes: ['gem', 'dust', 'storage_block'],
         color: ['#819da6', '#2e4049', '#1c1c1e', '#252525', '#1a2a36'],
         burnTime: 3200
