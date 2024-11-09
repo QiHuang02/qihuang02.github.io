@@ -8,7 +8,7 @@ permalink: /notes/kubejs/project/emendatusenigmaticajs/
 
 EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github.io/projects/omniworld/)，但是Omniworld目前任然停留在1.20.1，于是我修改了部分代码，将其带到1.21。
 
-需要更多资源请查看[我的仓库](https://github.com/QiHuang02/StellarisSpace)
+需要更多资源请查看[我的仓库](https://github.com/QiHuang02/StellarisSpace/tree/main/kubejs/assets/emendatusenigmatica)
 
 > [!warning]
 >
@@ -25,6 +25,7 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 > - [ ] 添加工具类型（稿、斧、锹、剑）的注册
 > - [ ] 添加装备类型（头盔、胸甲、护腿、鞋子）的注册
 > - [ ] 添加液体类型的注册
+> - [ ] 添加本地化
 > - [ ] 添加矿物生成
 > - [ ] 优化代码结构
 
@@ -34,7 +35,7 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 
 这一部分代码主要定义了矿物的地层，也是指容纳矿物的岩石。
 
-```JS
+```JS :collapsed-lines
 // Strata.js
 // priority: 200
 
@@ -102,7 +103,7 @@ global.EE_STRATAS = {
 
 这一部分主要用于定义一些全局的设定，例如各种路径、各种Json模板。
 
-```JS
+```JS :collapsed-lines
 // Global.js
 // priority: 199
 
@@ -254,7 +255,7 @@ Platform.setModName(`${global.modid}`, 'Emendatus Enigmatica');
 
 这一部分是EmendatusEnigmaticaJS最主要的一个部分，几乎所有的注册逻辑都在此。
 
-```JS
+```JS :collapsed-lines
 // EmendatusEnigmatica.js
 // priority: 198
 
@@ -675,7 +676,7 @@ function registryCrush(name, color) {
 
 这一部分主要用于材料的定义。
 
-```JS
+```JS :collapsed-lines
 // Material.js
 // priority: 197
 
