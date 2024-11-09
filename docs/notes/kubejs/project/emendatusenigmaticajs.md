@@ -10,23 +10,22 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 
 需要更多资源请查看[我的仓库](https://github.com/QiHuang02/StellarisSpace/tree/main/kubejs/assets/emendatusenigmatica)
 
-> [!warning]
+> [!important]
 >
-> 目前仍然处于WIP状态
+> 目前仍然处于 ==WIP== 状态
 >
 > ToDoList：
 >
-> - [x] 修复Ore类型的模型和纹理问题
-> - [x] 自动创建Ore类型的LootTable文件
-> - [x] 修改Block类型的纹理设置
-> - [x] 添加粗矿物及其方块的注册
+> - [x] 修复方块类型的模型和纹理问题
+> - [x] 添加自动创建矿物方块类型的LootTable文件集成
 > - [x] 添加锭、宝石、粒、板、棒、齿轮等物品的注册
-> - [x] 添加对Mekanism的支持
-> - [ ] 添加工具类型（稿、斧、锹、剑）的注册
-> - [ ] 添加装备类型（头盔、胸甲、护腿、鞋子）的注册
-> - [ ] 添加液体类型的注册
-> - [ ] 添加本地化
-> - [ ] 添加矿物生成
+> - [x] 添加对Mekanism的集成（仅完成物品的注册，化学品相关暂缓）
+> - [ ] 添加液体类型的集成
+> - [ ] 添加本地化集成
+> - [ ] 添加配方集成
+> - [ ] ~~添加工具类型（稿、斧、锹、剑）的注册~~
+> - [ ] ~~添加装备类型（头盔、胸甲、护腿、鞋子）的注册~~
+> - [ ] ~~添加矿物生成~~
 > - [ ] 优化代码结构
 
 [[TOC]]
