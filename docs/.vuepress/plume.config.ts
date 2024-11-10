@@ -7,15 +7,6 @@ import { notes } from './notes/notes'
  */
 export default defineThemeConfig({
   logo: '/favicon.svg',
-  // your git repo url
-  docsRepo: 'https://github.com/QiHuang02/qihuang02.github.io',
-  docsDir: 'docs',
-
-  contributors: true,
-  contributorsText: '贡献者',
-
-  editLink: true,
-  editLinkText: '发现错误？请点击此帮助我修改它',
 
   appearance: 'dark',
   aside: true,

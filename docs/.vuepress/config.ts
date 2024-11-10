@@ -24,6 +24,12 @@ export default defineUserConfig({
   theme: plumeTheme({
     // 添加您的部署域名
     hostname: 'https://qihuang02.cn',
+    // your git repo url
+    docsRepo: 'https://github.com/QiHuang02/qihuang02.github.io',
+    docsDir: 'docs',
+
+    changelog: true,
+    contributors: { mode: 'block' },
 
     plugins: {
       /**
@@ -85,6 +91,8 @@ export default defineUserConfig({
         reactionsEnabled: true,
         inputPosition: 'top',
       },
+
+      git: true
     },
   }),
 })
