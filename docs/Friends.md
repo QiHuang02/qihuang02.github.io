@@ -22,6 +22,11 @@ groups:
         link: https://blogs.prizowo.net/
         avatar: https://blogs.prizowo.net/icon/web.png
         desc: 这里收集了各种 Minecraft 模组的教程、资源以及使用工具.
+      -
+        name: 芒果的 KubeJS 筆記
+        link: https://feat-wiki.kubejs-notes.pages.dev/zh-tw/
+        avatar: https://feat-wiki.kubejs-notes.pages.dev/logo.png
+        desc: 一些關於 Minecraft 的 KubeJS 筆記.
   - 
     title: 我的世界相关
     list:
