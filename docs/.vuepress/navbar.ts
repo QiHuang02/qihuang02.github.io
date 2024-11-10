@@ -14,9 +14,9 @@ export const navbar = defineNavbarConfig([
         link: '/notes/README.md'
       },
       {
-        text: 'KubeJS',
-        icon: 'https://kubejs.com/img/logo/48.png',
-        link: '/notes/kubejs/前言.md'
+        text: 'Minecraft',
+        icon: 'https://zh.minecraft.wiki/images/Wiki.png?21467',
+        link: '/notes/minecraft/前言.md'
       },
       {
         text: 'Git',
