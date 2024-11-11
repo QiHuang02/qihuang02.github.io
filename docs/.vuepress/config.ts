@@ -28,6 +28,8 @@ export default defineUserConfig({
     docsRepo: 'https://github.com/QiHuang02/qihuang02.github.io',
     docsDir: 'docs',
 
+    editLinkText: '帮助我修改错误',
+
     changelog: true,
     contributors: { mode: 'block' },
 
