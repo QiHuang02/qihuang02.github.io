@@ -62,4 +62,12 @@ groups:
         link: https://theme-plume.vuejs.press/
         avatar: https://theme-plume.vuejs.press/favicon-32x32.png
         desc: 一个简约易用的，功能丰富的 vuepress 文档&博客 主题.
+  - 
+    title: 技术性文档
+    list:
+      -
+        name: CS 自学指南
+        link: https://github.com/PKUFlyingPig/cs-self-learning
+        avatar: https://csdiy.wiki/images/favicon.ico
+        desc: 这是一本计算机的自学指南，也是对自己大学三年自学生涯的一个纪念.
 ---
