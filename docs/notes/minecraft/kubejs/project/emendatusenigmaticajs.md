@@ -604,6 +604,26 @@ function registryCrush(name, color) {
 // Material.js
 // priority: 197
 
+// 在这里可以添加定义材料
+// 一些必须的属性: name、type、processedTypes
+// 一些可选的属性: color、texture、drop、burnTime、gemTemplate、strata、harvestLevel
+// 参数解释:
+// `name`: 定义材料的名称，
+// `type`: 定义材料的类型,可选的有`metal`,`alloy`,`gem`,`special`
+// // `metal`: 不支持 `gem`
+// // `alloy`: 不支持 `gem`、`ore`、`raw`
+// // `gem`: 不支持 `ingot`, `nugget`
+// // `special`: 都支持，但是纹理需要自己准备
+// `processedTypes`: 定义了材料可以有哪些形态
+// // 全部的可支持的形态有: `ore`, `raw`, `gem`, `ingot`, `nugget`, `dust`, `plate`, `gear`, `rod`, `storage_block`, `mekanism`, `bloodmagic`, `crushed`
+// `color`: 因为是使用的灰度模板纹理、所以需要使用该属性为其上颜色
+// `texture`: 使用自定义的纹理
+// `drop`: 当设置改属性后，会自动生成该材料的矿物方块的战利品表，当加工形态中有`ore`时必须设置
+// `burnTime`: 定义该材料的燃烧值
+// `gemTemplate`: 定义了该材料使用的宝石纹理的模版，当`type`为`gem`时必须设置
+// `strata`: 定义了该材料的容矿物，当加工形态中有`ore`时必须设置
+// `harvestLevel`: 定义了该材料的方块形态的加工形态的挖掘等级
+
 let commonStratas = ['stone', 'andesite', 'diorite', 'granite', 'deepslate', 'netherrack', 'end_stone'];
 let vanillaComplementStratas = ['netherrack', 'end_stone'];
 
@@ -615,7 +635,7 @@ global.EE_MATERIALS = [
     // Coal
     {
         name: 'coal',
-        type: 'dust',
+        type: 'special',
         processedTypes: ['dust'],
         color: ['#393e46', '#2e2e2e', '#261e24', '#1f1721', '#1c1c1e'],
         burnTime: 1600
@@ -877,35 +897,75 @@ global.EE_MATERIALS = [
         processedTypes: ['ore', 'gem', 'dust', 'storage_block'],
         harvestLevel: 'stone',
         strata: commonStratas,
-        color: [],
+        texture: {
+            item: {
+
+            },
+            block: '',
+        },
         drop: {
             item: 'emendatusenigmatica:fluorite_gem',
             min: 2,
             max: 4
         }
     },
+    // Ruby
+    {
+        name: 'ruby',
+        type: 'gem',
+        baseItem: 'gem',
+        processedTypes: ['gem', 'dust', 'gear', 'plate', 'rod', 'storage_block'],
+        color: ['#fcd1cc', '#fb7b71', '#e93e43', '#c41735', '#780526'],
+        gemTemplate: 1
+    },
+    // Sapphire
+    {
+        name: 'sapphire',
+        type: 'gem',
+        baseItem: 'gem',
+        processedTypes: ['gem', 'dust', 'gear', 'plate', 'rod', 'storage_block'],
+        color: ['#fcfcfc', '#bde5fc', '#76c6fc', '#246be9', '#121d73'],
+        gemTemplate: 3
+    },
     // Misc
     // Wood
     {
         name: 'wood',
-        type: 'misc',
+        type: 'special',
         processedTypes: ['dust', 'storage_block'],
         color: ['#b8945f', '#987849', '#745a36', '#5f4a2b', '#4c3d26']
     },
     // Ender Pearl
     {
         name: 'ender_pearl',
-        type: 'misc',
+        type: 'special',
         processedTypes: ['dust', 'storage_block'],
         color: ['#8cf4e2', '#349988', '#0c3730', '#0b4d42', '#063931']
     },
     // Coal Coke
     {
         name: 'coal_coke',
-        type: 'misc',
+        type: 'special',
         processedTypes: ['gem', 'dust', 'storage_block'],
         color: ['#819da6', '#2e4049', '#1c1c1e', '#252525', '#1a2a36'],
+        texture: {
+            item: {
+                gem: 'item/coal_coke_gem',
+            },
+            block: 'block/coal_coke_block'
+        },
         burnTime: 3200
+    },
+    // Silicon
+    {
+        name: 'silicon',
+        type: 'special',
+        processedTypes: ['gem'],
+        texture: {
+            item: {
+                gem: 'item/silicon_gem'
+            }
+        }
     },
     // Alloys
     // Electrum
@@ -971,12 +1031,6 @@ global.EE_MATERIALS = [
         processedTypes: ['dust', 'gear', 'ingot', 'nugget', 'plate', 'rod', 'storage_block'],
         color: ['#e4e6eb', '#9ea0a3', '#818185', '#454552', '#31313b']
     },
-    {
-        name: 'infinity',
-        type: 'metal',
-        processedTypes: ['ingot', 'nugget', 'dust', 'plate', 'gear', 'rod', 'storage_block'],
-        harvestLevel: 'end_stone',
-    }
 ];
 
 global.EE_MATERIALS.forEach(
