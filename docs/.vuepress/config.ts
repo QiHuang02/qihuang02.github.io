@@ -1,6 +1,7 @@
 import { defineUserConfig } from 'vuepress';
 import { viteBundler } from '@vuepress/bundler-vite';
 import { plumeTheme } from 'vuepress-theme-plume';
+import path from 'node:path';
 
 export default defineUserConfig({
   base: '/',
@@ -40,7 +41,7 @@ export default defineUserConfig({
        */
       shiki: {
         languages: ['typescript', 'javascript', 'css', 'html', 'json', 'shell'],
-        twoslash: true,
+        twoslash: false
       },
 
       /**
