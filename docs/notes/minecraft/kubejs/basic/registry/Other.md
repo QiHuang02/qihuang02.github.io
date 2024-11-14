@@ -6,11 +6,7 @@ permalink: /notes/minecraft/kubejs/basic/registry/other/
 
 ## 基本语法
 
-```JS
-StartupEvents.registry('item', (event) => {
-    event.create(name, type)
-});
-```
+WIP
 
 ## 函数
 
@@ -18,32 +14,7 @@ StartupEvents.registry('item', (event) => {
 
 ::: details 点我查看更多
 
-- `name()`
-- `component()`
-- `use()`
-- `color()`
-- `maxStackSize()`
-- `subtypes`
-- `createItemProperties()`
-- `useDuration`
-- `hurtEnemy`
-- `food`
-- `disableRepair`
-- `useAnimation`
-- `unstackable`
-- `containerItem`
-- `burnTime`
-- `maxDamage`
-- `releaseUsing`
-- `jukeboxPlayable`
-- `finishUsing`
-- `fireResistant`
-- `rarity`
-- `barColor`
-- `tooltip`
-- `barWidth`
-- `glow`
-- `transformObject`
+WIP
 
 :::
 
@@ -55,8 +26,6 @@ StartupEvents.registry('item', (event) => {
 
 ::: details 点我查看更多
 
-|type|描述|
-|:-:|:-:|
-|sword|剑|
+WIP
 
 :::
