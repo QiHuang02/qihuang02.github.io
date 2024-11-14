@@ -1,14 +1,12 @@
 import { defineNotesConfig } from 'vuepress-theme-plume';
-import minecraft_kubejsNote from './minecraft.kubejs';
-import minecraft_MiscNote from './minecraft.misc';
-import minecraft from './minecraft';
+import KubejsNote from './kubejs';
+import MiscNote from './misc';
 
 export const notes = defineNotesConfig({
 	dir: 'notes',
 	link: '/',
 	notes: [
-		minecraft,
-		minecraft_kubejsNote,
-		minecraft_MiscNote,
+		KubejsNote,
+		MiscNote,
 	]
 })
