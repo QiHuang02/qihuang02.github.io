@@ -16,7 +16,7 @@ export default defineNoteConfig({
                 },
                 {
                     prefix: 'misc',
-                    text: 'Minecraft Misc',
+                    text: 'Misc',
                     link: '/notes/minecraft/misc/'
                 }
             ]
