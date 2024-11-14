@@ -9,14 +9,25 @@ export const navbar = defineNavbarConfig([
     text: '笔记',
     items: [
       {
-        text: 'Catalogue',
+        text: '目录',
         icon: 'gg:menu-boxed',
         link: '/notes/README.md'
       },
       {
         text: 'Minecraft',
         icon: 'https://zh.minecraft.wiki/images/Wiki.png?21467',
-        link: '/notes/minecraft/前言.md'
+        items: [
+          {
+            text: 'KubeJS',
+            icon: 'https://kubejs.com/img/logo/48.png',
+            link: '/notes/minecraft/kubejs/前言.md'
+          },
+          {
+            text: 'Minecraft 小知识',
+            icon: 'fluent-mdl2:knowledge-article',
+            link: '/notes/minecraft/misc/前言.md'
+          }
+        ]
       },
       {
         text: 'Git',
