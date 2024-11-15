@@ -9,7 +9,7 @@ export default defineNoteConfig({
             icon: 'https://zh.minecraft.wiki/images/Wiki.png?21467',
             items: [
                 '前言',
-                'Namespace',
+                'Resource_location',
                 'Item',
                 'DataComponents',
                 'Ingredient',
