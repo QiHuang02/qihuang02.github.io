@@ -2,7 +2,11 @@
 pageLayout: friends
 title: 联结
 createTime: 2024/10/28 23:47:21
-permalink: /Friends/
+permalink: /blog/Friends/
+sticky: 100000000
+tags:
+  - Friends
+  - Links
 groups:
   - 
     title: 友情链接
