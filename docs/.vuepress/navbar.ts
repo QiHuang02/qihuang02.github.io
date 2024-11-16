@@ -36,6 +36,6 @@ export const navbar = defineNavbarConfig([
       }
     ]
   },
-  { text: '联结', link: '/Friends.md'},
+  { text: '联结', link: '/blog/Friends.md'},
   { text: '图床', link: 'https://image.qihuang02.cn/'}
 ])
