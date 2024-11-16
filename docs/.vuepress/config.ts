@@ -33,6 +33,12 @@ export default defineUserConfig({
     changelog: true,
     contributors: { mode: 'block' },
 
+    blog: {
+      include: [
+        'blog/*.md'
+      ]
+    },
+
     plugins: {
       /**
        * Shiki 代码高亮
