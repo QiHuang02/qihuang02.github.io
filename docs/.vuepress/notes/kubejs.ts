@@ -18,7 +18,16 @@ export default defineNoteConfig({
             collapsed: false,
             items: [
                 '介绍',
-                '事件列表',
+                {
+                    prefix: 'event',
+                    text: '事件',
+                    collapsed: true,
+                    items: [
+                        'client_scripts',
+                        'server_scripts',
+                        'startup_scripts'
+                    ]
+                },
                 {
                     prefix: 'recipe',
                     text: '配方',
