@@ -12,9 +12,10 @@ export default defineNoteConfig({
                 'Attribute',
                 'Blockbench',
                 'DataComponents',
-                'Resource_location',
                 'Ingredient',
                 'Item',
+                'Resource_location',
+                'Resource_pack',
             ]
         }
     ]
