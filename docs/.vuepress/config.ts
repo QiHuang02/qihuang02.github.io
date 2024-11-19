@@ -5,7 +5,7 @@ import { plumeTheme } from 'vuepress-theme-plume';
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: '首页',
+  title: 'QiHuang02的笔记本',
   
   description: 'An Docs based on vuepress and written with my notes',
 
@@ -14,6 +14,8 @@ export default defineUserConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
     ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '16*16', href: '/favicon.svg'}],
     ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon.svg'}],
+    ['link', { rel: 'mask-icon', href: '/favicon.svg'}],
     ['link', { rel: "preconnect", href: "https://fonts.googleapis.com"}],
     ['link', { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: ""}],
     ['link', { href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap", rel: "stylesheet"}]
