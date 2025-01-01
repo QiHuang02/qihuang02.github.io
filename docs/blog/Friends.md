@@ -17,11 +17,6 @@ groups:
         avatar: https://docs.mihono.cn/svg/crychic.svg
         desc: 一个由Crychic团队维护的我的世界文档.
       -
-        name: 孤梦的KubeJS教程-1.20.1
-        link: https://gumeng.gitbook.io/kubejs-jiao-cheng-1.20.1
-        avatar: https://www.github.com/Gu-meng.png
-        desc: 这是1.20.1的kubejs内容分享，包括一些教程和项目.
-      -
         name: PrizOwO'Blog
         link: https://blogs.prizowo.net/
         avatar: https://blogs.prizowo.net/icon/web.png

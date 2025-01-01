@@ -17,9 +17,9 @@ permalink: /notes/minecraft/kubejs/project/solar_panel/
 
 ## 模型和纹理
 
-我的世界支持Json格式的模型，那么我在这推荐一个Minecraft相关资源中的神器[Blockbench](../misc/software/blockbench.md)。它可以帮助我们快速制作出Json格式的模型文件和机器的纹理。
+我的世界支持Json格式的模型，那么我在这推荐一个Minecraft相关资源中的神器[Blockbench](../../misc/Blockbench.md)。它可以帮助我们快速制作出Json格式的模型文件和机器的纹理。
 
-以下是我自己使用Blockbench制作的模型文件和纹理，如想使用请自取。对于代码中的`<namespace>`参数,请替换为自己的。详情请看[namespace](../misc/basic/namespace.md)。
+以下是我自己使用Blockbench制作的模型文件和纹理，如想使用请自取。对于代码中的`<namespace>`参数,请替换为自己的。详情请看[namespace](../../misc/Resource_location.md#namespace-命名空间)。
 
 - [solar_panel.json](https://github.com/QiHuang02/StellarisSpace/blob/main/kubejs/assets/stellaris_space/models/block/solar_panel.json)
 - [solar_panel_base.png](https://github.com/QiHuang02/StellarisSpace/blob/main/kubejs/assets/stellaris_space/textures/block/solar_panel_base.png)

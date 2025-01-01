@@ -32,7 +32,13 @@ export const navbar = defineNavbarConfig([
       {
         text: 'Git',
         icon: 'fa6-brands:square-git',
-        link: '/notes/git/git_command.md'
+        items: [
+          {
+            text: '常用指令',
+            icon: 'fa6-brands:square-git',
+            link: '/notes/git/git_command.md'
+          }
+        ],
       }
     ]
   },
