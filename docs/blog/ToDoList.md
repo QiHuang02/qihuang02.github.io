@@ -4,9 +4,14 @@ createTime: 2025/01/04 16:11:31
 permalink: /blog/ToDoList/
 sticky: 100000000
 tags:
-  - ToDo
+  - ToDoList
 ---
 
-- [ ] Minecraft -> Misc -> [Block.md](../notes/minecraft/misc/Block.md)
+::: tip ToDoList
+
+- [x] Minecraft -> Misc -> [Block.md](../notes/minecraft/misc/Block.md)
+- [ ] Minecraft -> Misc -> [Blockbench.md](../notes/minecraft/misc/Blockbench.md)
 - [ ] Minecraft -> Misc -> [Resource Pack.md](../notes/minecraft/misc/Resource_pack.md)
-- [ ] Minecraft -> KuBeJS -> Addons -> [LootJS](../notes/minecraft/kubejs/addons/LootJS/Introduction.md)
+- [ ] Minecraft -> KubeJS -> Addons -> [LootJS](../notes/minecraft/kubejs/addons/LootJS/Introduction.md)
+
+:::
