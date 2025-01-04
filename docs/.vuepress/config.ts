@@ -14,7 +14,7 @@ export default defineUserConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
     ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '16*16', href: '/favicon.svg'}],
     ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
-    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.svg'}],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png'}],
     ['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg'}],
     ['link', { rel: "preconnect", href: "https://fonts.googleapis.com"}],
     ['link', { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: ""}],
