@@ -15,7 +15,7 @@ permalink: /notes/minecraft/kubejs/project/solar_panel/
 
 ---
 
-## 模型和纹理
+## 模型和纹理 {#model_and_texture}
 
 我的世界支持Json格式的模型，那么我在这推荐一个Minecraft相关资源中的神器[Blockbench](../../misc/Blockbench.md)。它可以帮助我们快速制作出Json格式的模型文件和机器的纹理。
 
@@ -26,7 +26,7 @@ permalink: /notes/minecraft/kubejs/project/solar_panel/
 - [solar_panel_cell.png](https://github.com/QiHuang02/StellarisSpace/blob/main/kubejs/assets/stellaris_space/textures/block/solar_panel_cell.png)
 - [solar_panel_column.png](https://github.com/QiHuang02/StellarisSpace/blob/main/kubejs/assets/stellaris_space/textures/block/solar_panel_column.png)
 
-## 如何注册
+## 如何注册 {#how_to_registry}
 
 注册是一个启动事件，因此代码需要以`ServerEvents.recipes`为头
 
@@ -66,14 +66,14 @@ BlockEvents.blockEntityTick('<namecpace>:solar_panel', (event) => {
 });
 ```
 
-## 本地化
+## 本地化 {#i18n}
 
 有两种方法来进行本地化
 
 - 直接使用Json文件
 - 使用KubeJS提供的方法
 
-### 使用Json文件
+### 使用Json文件 {#use_the_json_file}
 
 ```Json
 {
@@ -81,7 +81,7 @@ BlockEvents.blockEntityTick('<namecpace>:solar_panel', (event) => {
 }
 ```
 
-### 使用Client事件
+### 使用Client事件 {#use_the_client_event}
 
 ```JS
 ClientEvents.lang('zh_cn', (event) => {

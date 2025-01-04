@@ -16,7 +16,7 @@ permalink: /notes/git/git_command
 
 :::
 
-## 创建版本库/本地库
+## 创建版本库/本地库 {#create_a_repositories}
 
 ```shell
 git clone url 
@@ -25,7 +25,7 @@ git init
     # 初始化本地仓库
 ```
 
-## 修改和提交
+## 修改和提交 {#modify_and_commit}
 
 ```shell
 git status
@@ -48,7 +48,7 @@ git commit --amend
     # 修改最后一次提交
 ```
 
-## 查看提交历史
+## 查看提交历史 {#check_the_commit_history}
 
 ```shell
 git log
@@ -59,7 +59,7 @@ git blame file
     # 以列表方式查看指定文件的提交历史
 ```
 
-## 撤销
+## 撤销 {#reset}
 
 ```shell
 git reset --head HEAD
@@ -70,7 +70,7 @@ git revert commit
     # 撤销指定的提交
 ```
 
-## 分支与标签
+## 分支与标签 {#branch_and_tag}
 
 ```shell
 git branch
@@ -89,7 +89,7 @@ git tag -d tagname
     # 删除标签
 ```
 
-## 合并与变基
+## 合并与变基 {#merge_and_rebase}
 
 ```shell
 git merge branch
@@ -98,7 +98,7 @@ git rebase branch
     # 变基合并指定分支到当前分支
 ```
 
-## 远程操作
+## 远程操作 {#remote_operation}
 
 ```shell
 git remote -v

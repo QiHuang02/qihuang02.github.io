@@ -4,7 +4,7 @@ createTime: 2024/09/28 14:35:57
 permalink: /notes/minecraft/misc/item/
 ---
 
-## Item
+## Item {#item}
 
 **什么是物品？**
 
@@ -13,7 +13,7 @@ permalink: /notes/minecraft/misc/item/
 - 在世界中，当你遇到一个泥土方块并想要挖掘它时，这就是一个方块，因为它被放置在世界中（实际上，这是一个[方块状态](Block.md#blockstates)）。
 - 当你挖掘一个方块时，它会被移除（相当于被空气方块替换），并掉落一个泥土物品实体（Item Entity）。这个掉落的泥土物品实体可以像其他实体（例如猪、僵尸、箭等）一样被水推动，或者被火和熔岩燃烧。
 
-## ItemStack
+## ItemStack {#itemstack}
 
 那么在同一个例子中：
 

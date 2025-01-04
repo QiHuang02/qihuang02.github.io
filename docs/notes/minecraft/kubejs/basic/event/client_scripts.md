@@ -6,9 +6,9 @@ permalink: /notes/minecraft/kubejs/basic/event/client_scripts/
 
 `client_scripts` 文件夹包含每次客户端资源重新加载时都会加载的脚本。可以通过快捷键 `F3` + `T` 或者使用指令 `/kubejs reload client_scripts` 来对该文件夹下的脚本进行重载。
 
-## 事件列表
+## 事件列表 {#event_list}
 
-### **ItemEvents 事件**{id:client_itemevent}
+### **ItemEvents 事件** {#client_itemevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -26,7 +26,7 @@ permalink: /notes/minecraft/kubejs/basic/event/client_scripts/
 |smelted|-|link|
 |modifyTooltips|-|link|
 
-### **LevelEvents 事件**{id:client_levelevent}
+### **LevelEvents 事件** {#client_levelevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -34,13 +34,13 @@ permalink: /notes/minecraft/kubejs/basic/event/client_scripts/
 |tick|-|link|
 |afterExplosion|-|link|
 
-### **NetworkEvents 事件**{id:client_networkevent}
+### **NetworkEvents 事件** {#client_networkevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
 |dataReceived|-|link|
 
-### **RecipeViewerEvents 事件**{id:client_recipeviewevent}
+### **RecipeViewerEvents 事件** {#client_recipeviewevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -53,7 +53,7 @@ permalink: /notes/minecraft/kubejs/basic/event/client_scripts/
 |registerSubtypes|-|link|
 |groupEntries|-|link|
 
-### **EntityEvents 事件**{id:client_entityevent}
+### **EntityEvents 事件** {#client_entityevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -64,7 +64,7 @@ permalink: /notes/minecraft/kubejs/basic/event/client_scripts/
 |death|-|link|
 |beforeHurt|-|link|
 
-### **ClientEvents 事件**{id:client_clientevent}
+### **ClientEvents 事件** {#client_clientevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -78,7 +78,7 @@ permalink: /notes/minecraft/kubejs/basic/event/client_scripts/
 |tick|-|link|
 |lang|-|link|
 
-### **BlockEvents 事件**{id:client_blockevent}
+### **BlockEvents 事件** {#client_blockevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -94,7 +94,7 @@ permalink: /notes/minecraft/kubejs/basic/event/client_scripts/
 |detectorChanged|-|link|
 |blockEntityTick|-|link|
 
-### **PlayerEvents 事件**{id:client_playerevent}
+### **PlayerEvents 事件** {#client_playerevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|

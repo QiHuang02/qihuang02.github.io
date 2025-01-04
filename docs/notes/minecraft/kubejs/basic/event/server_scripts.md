@@ -6,9 +6,9 @@ permalink: /notes/minecraft/kubejs/basic/event/server_scripts/
 
 `server_scripts` 文件夹包含每次服务器资源加载时（世界加载， /reload ）都会加载的脚本。
 
-## 事件列表
+## 事件列表 {#event_list}
 
-### **ItemEvents 事件**{id:server_itemevent}
+### **ItemEvents 事件** {#server_itemevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -25,7 +25,7 @@ permalink: /notes/minecraft/kubejs/basic/event/server_scripts/
 |smelted|-|link|
 |modifyTooltips|-|link|
 
-### **LevelEvents 事件**{id:server_levelevent}
+### **LevelEvents 事件** {#server_levelevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -36,13 +36,13 @@ permalink: /notes/minecraft/kubejs/basic/event/server_scripts/
 |tick|-|link|
 |afterExplosion|-|link|
 
-### **NetworkEvents 事件**{id:server_networkevent}
+### **NetworkEvents 事件** {#server_networkevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
 |dataReceived|-|link|
 
-### **RecipeViewerEvents 事件**{id:server_recipeviewevent}
+### **RecipeViewerEvents 事件** {#server_recipeviewevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -56,7 +56,7 @@ permalink: /notes/minecraft/kubejs/basic/event/server_scripts/
 |registerSubtypes|-|link|
 |groupEntries|-|link|
 
-### **EntityEvents 事件**{id:server_entityevent}
+### **EntityEvents 事件** {#server_entityevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -68,7 +68,7 @@ permalink: /notes/minecraft/kubejs/basic/event/server_scripts/
 |death|-|link|
 |beforeHurt|-|link|
 
-### **BlockEvents 事件**{id:server_blockevent}
+### **BlockEvents 事件** {#server_blockevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|
@@ -86,7 +86,7 @@ permalink: /notes/minecraft/kubejs/basic/event/server_scripts/
 |detectorChanged|-|link|
 |blockEntityTick|-|link|
 
-### **PlayerEvents 事件**{id:server_playerevent}
+### **PlayerEvents 事件** {#server_playerevent}
 
 |子事件|描述|相关链接|
 |:-:|:-:|:-:|

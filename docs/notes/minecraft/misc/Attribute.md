@@ -8,11 +8,11 @@ Attribute (属性) 是决定生物、盔甲架和玩家某些特性的值。属�
 
 [[TOC]]
 
-## Applying attributes
+## Applying attributes {#applying_attributes}
 
 属性可以直接通过指令 `/attribute` 来修改生物、盔甲架和玩家的属性。
 
-## Attribute
+## Attribute {#attribute}
 
 每个独立的属性都控制着生物的一些能力，例如攻击伤害和速度等。所有的属性值都是双精度浮点数。
 
@@ -20,7 +20,7 @@ Attribute (属性) 是决定生物、盔甲架和玩家某些特性的值。属�
 
 因此一个生物的属性最终以计算值生效。
 
-### 目前所有的属性值
+### 目前所有的属性值 {#all_current_attribute_values}
 
 :::important
 这里仅列出 1.21.1 版本提供的属性值。
@@ -60,7 +60,7 @@ Attribute (属性) 是决定生物、盔甲架和玩家某些特性的值。属�
 |横扫伤害比率|`player.sweeping_damage_ratio`|正面|玩家的横扫伤害于近战伤害的比例|
 |僵尸增援|`zombie.spawn_reinforcements`|正面|僵尸生成僵尸增援的能力|
 
-## Modifiers
+## Modifiers {#modifiers}
 
 Modifiers (修饰符) 作用于[属性](#attribute)的基础值。被修饰符修改后的值总会在一个属性的最低值和最高值之间，例如：在原版中，`armor` 属性的最小值和最大值为`[0，30]`，当我们将玩家的护甲值经过修饰符后获得一个值为 `32` 时，该属性在游戏中任然会表现为30护甲值。
 
@@ -68,7 +68,7 @@ Modifiers (修饰符) 作用于[属性](#attribute)的基础值。被修饰符�
 
 修饰符的ID或名称与它的具体效果无关，而由它的`作用属性类型（type）`、 `运算模式（operation）`和`修饰值（amount）`决定。
 
-### Operations
+### Operations {#operations}
 
 修饰符运算模式决定了它是如何对属性的基础值进行修改的。
 

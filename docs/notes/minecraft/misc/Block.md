@@ -4,7 +4,7 @@ createTime: 2025/01/01 21:41:53
 permalink: /notes/minecraft/misc/block/
 ---
 
-## Block
+## Block {#block}
 
 方块是 Minecraft 世界里最基本的组成单位。方块构成游戏内的环境，并能以各种各样的方式被收集和利用。
 
@@ -12,6 +12,6 @@ permalink: /notes/minecraft/misc/block/
 
 因此，一个方块只需要我们在注册时实例化一次。方块注册后，我们可以根据需要去使用已注册的引用。
 
-## Blockstates
+## Blockstates {#blockstates}
 
 方块状态（Block States）是进一步定义一个方块所需的附加数据，包括方块的外观和行为。

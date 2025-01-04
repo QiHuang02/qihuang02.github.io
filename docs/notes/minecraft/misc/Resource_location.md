@@ -6,7 +6,7 @@ permalink: /notes/minecraft/misc/Resource location/
 
 `Resource location` (资源路径)，也被称为 `namespaced IDs`， `namespaced identifiers`， `resource identifiers`， 或者 `namespaced strings`，是一种用来声明和制定Minecraft中各种对象的方式，可以无歧义的识别内置的、自定义的对象，避免潜在的冲突。
 
-## 定义
+## 定义 {#definition}
 
 一个 `Resource location` 由两个部分组成:
 
@@ -24,13 +24,13 @@ permalink: /notes/minecraft/misc/Resource location/
 
 - 正斜杠: `/`
 
-### `Namespace` (命名空间)
+### `Namespace` (命名空间) {#namespace}
 
 - `Namespace`: 命名空间起到了对资源的隔离作用。它可防止潜在的内容冲突或无意中覆盖了相同名称的对象。也就是说命名空间可以有多个，但是必须唯一。
   
   例如，某一个模组ID为 `examplemod` 的模组使用 `examplemod` 作为命名空间，Minecraft 使用 `minecraft` 作为命名空间。假如在这两个命名空间下有一个同样名为 `stick` 的物品，但是由于它在两个命名空间中，所以其实是有两个物品存在，也就是 `examplemod:item/stick` 和 `minecraft:item/stick`。
 
-### `Path` (路径)
+### `Path` (路径) {#path}
 
 - `Path`: 路径是指你命名空间内的任何对象。
   

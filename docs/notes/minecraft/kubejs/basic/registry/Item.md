@@ -10,7 +10,7 @@ permalink: /notes/minecraft/kubejs/basic/registry/item/
 
 :::
 
-## 基本语法
+## 基本语法 {#basic_grammar}
 
 ```JS
 StartupEvents.registry('item', (event) => {
@@ -18,7 +18,7 @@ StartupEvents.registry('item', (event) => {
 });
 ```
 
-## 方法
+## 方法 {#method}
 
 这里的`event.create(name, type)`可以通过链式调用为物品添加更多的属性，这对于魔改来说十分方便。以下是一些可以进行链式调用的方法。
 
@@ -56,7 +56,7 @@ StartupEvents.registry('item', (event) => {
 
 :::
 
-## 参数解释
+## 参数解释 {#parameter}
 
 `name` 物品的物品的id
 

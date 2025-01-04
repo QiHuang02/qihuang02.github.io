@@ -17,7 +17,7 @@ permalink: /notes/minecraft/kubejs/project/emendatusenigmaticajs/
 
 [[TOC]]
 
-## 关于 EmendatusEnigmaticaJS
+## 关于 EmendatusEnigmaticaJS {#about_emendatusenigmaticajs}
 
 EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github.io/projects/omniworld/)，但是Omniworld目前任然停留在1.20.1，于是我修改了部分代码，将其带到1.21。
 
@@ -43,17 +43,18 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 > - [ ] ~~添加矿物生成~~
 > - [ ] 优化代码结构
 
-## 如何使用
+## 如何使用 {#how_to_use}
 
 在这里可以添加定义材料
 
-### 参数
+### 参数 {#parameter}
 
 一些必须的参数: `name`、`type`、`processedTypes`
 
 一些可选的参数: `color`、`texture`、`drop`、`burnTime`、`gemTemplate`、`strata`、`harvestLevel`
 
-### 参数解释:
+参数解释:
+
 - `name`: 定义材料的名称
 - `type`: 定义材料的类型,可选的有`metal`,`alloy`,`gem`,`special`
   - `metal`: 不支持 `gem`
@@ -70,9 +71,9 @@ EmendatusEnigmaticaJS最初来自于整合包[Omniworld](https://n-wither.github
 - `strata`: 定义了该材料的容矿物，当加工形态中有`ore`时必须设置
 - `harvestLevel`: 定义了该材料的方块形态的加工形态的挖掘等级
 
-## 源代码
+## 源代码 {#source_code}
 
-### Strata.js
+### Strata.js {#strata.js}
 
 这一部分代码主要定义了矿物的地层，也是指容纳矿物的岩石。
 
@@ -140,7 +141,7 @@ let EE_STRATAS = {
 };
 ```
 
-### Global.js
+### Global.js {#global.js}
 
 这一部分主要用于定义一些全局的设定，例如各种路径、各种Json模板。
 
@@ -252,7 +253,7 @@ function createLootOre(name, strata, drop) {
 };
 ```
 
-### EmendatusEnigmatica.js
+### EmendatusEnigmatica.js {#emendatusenigmatica.js}
 
 这一部分是EmendatusEnigmaticaJS最主要的一个部分，几乎所有的注册逻辑都在此。
 
@@ -750,7 +751,7 @@ function registryCrush(name, color) {
 };
 ```
 
-### Material.js
+### Material.js {#material.js}
 
 这一部分主要用于材料的定义。
 

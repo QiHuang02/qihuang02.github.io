@@ -6,7 +6,7 @@ permalink: /notes/minecraft/misc/resource_pack/
 
 `Resource pack` (资源包) 系统为玩家提供了一种自定义纹理、模型、音乐、声音、语言、文本(如终末之诗、闪烁标语、鸣谢与著作权说明屏幕)和字体的方式。它们通常与数据包一起使用，以向游戏中添加新内容。
 
-## 文件结构
+## 文件结构 {#file_structure}
 
 ::: file-tree
 
