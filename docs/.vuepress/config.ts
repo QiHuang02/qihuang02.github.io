@@ -22,6 +22,7 @@ export default defineUserConfig({
   ],
 
   bundler: viteBundler(),
+  shouldPrefetch: false,
 
   theme: plumeTheme({
     // 添加您的部署域名
