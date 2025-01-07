@@ -4,7 +4,7 @@ externalLinkIcon: false
 config:
   -
     type: banner
-    banner: '/images/background/changli.png'
+    banner: https://image.qihuang02.cn/file/1736173268438_bg_changli_1.png
     bannerMask:
       light: 0.1
       dark: 0.3
