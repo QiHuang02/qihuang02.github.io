@@ -31,3 +31,5 @@ pnpm vp-update
 
 - [vuepress](https://vuepress.vuejs.org/)
 - [vuepress-theme-plume](https://theme-plume.vuejs.press/)
+- [Maple Mono NF CN](https://github.com/subframe7536/maple-font)
+- [ZSFT](https://fonts.zeoseven.com/)
