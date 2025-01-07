@@ -65,11 +65,47 @@ export default defineNoteConfig({
             collapsed: false,
             items: [
                 {
-                    prefix: 'LootJS',
+                    prefix: 'lootjs',
                     text: 'LootJS',
                     collapsed: true,
                     items: [
-                        'Introduction',
+                        'introduction',
+                        {
+                            prefix: 'loot_tables',
+                            text: 'Loot Tables',
+                            collapsed: true,
+                            items: [
+                                '简介',
+                                'modify',
+                                'create'
+                            ]
+                        },
+                        {
+                            prefix: 'loot_modifiers',
+                            text: 'Loot Modifiers',
+                            collapsed: true,
+                            items: [
+                                '简介',
+                            ]
+                        },
+                        {
+                            prefix: 'api',
+                            text: 'API',
+                            collapsed: true,
+                            items: [
+                                'itemfilter',
+                                'loottable',
+                                'lootpool',
+                                'lootentry',
+                                'lootentrytransformer',
+                                'lootconditions',
+                                'lootfunctions',
+                                'lootmodifier',
+                                'lootcontext',
+                                'numberprovider',
+                                'range'
+                            ]
+                        }
                     ]
                 }
             ]
