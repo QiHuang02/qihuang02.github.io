@@ -1,5 +1,5 @@
 ---
-title: loot_modifiers
+title: Loot Modifiers
 createTime: 2025/01/08 21:38:17
 permalink: /notes/minecraft/kubejs/addons/lootjs/loot_modifiers/
 ---
