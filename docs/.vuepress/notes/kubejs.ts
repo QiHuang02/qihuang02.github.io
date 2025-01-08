@@ -70,24 +70,8 @@ export default defineNoteConfig({
                     collapsed: true,
                     items: [
                         'introduction',
-                        {
-                            prefix: 'loot_tables',
-                            text: 'Loot Tables',
-                            collapsed: true,
-                            items: [
-                                '简介',
-                                'modify',
-                                'create'
-                            ]
-                        },
-                        {
-                            prefix: 'loot_modifiers',
-                            text: 'Loot Modifiers',
-                            collapsed: true,
-                            items: [
-                                '简介',
-                            ]
-                        },
+                        'loot_tables',
+                        'loot_modifiers',
                         {
                             prefix: 'api',
                             text: 'API',
