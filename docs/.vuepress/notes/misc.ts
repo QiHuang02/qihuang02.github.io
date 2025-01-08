@@ -15,6 +15,7 @@ export default defineNoteConfig({
                 'DataComponents',
                 'Ingredient',
                 'Item',
+                'LootType',
                 'Resource_location',
                 'Resource_pack',
             ]
