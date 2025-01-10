@@ -22,9 +22,9 @@
     "sass-embedded": "^1.83.1",
     "vue": "^3.5.13",
     "vuepress": "2.0.0-rc.19",
-    "vuepress-theme-plume": "1.0.0-rc.127"
+    "vuepress-theme-plume": "1.0.0-rc.128"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.293"
+    "@iconify/json": "^2.2.294"
   }
 }
