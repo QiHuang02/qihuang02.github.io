@@ -18,6 +18,6 @@ tags:
 - [x] Minecraft -> Misc -> [Block.md](../notes/minecraft/misc/Block.md)
 - [ ] Minecraft -> Misc -> [Blockbench.md](../notes/minecraft/misc/Blockbench.md)
 - [ ] Minecraft -> Misc -> [Resource Pack.md](../notes/minecraft/misc/Resource_pack.md)
-- [ ] Minecraft -> KubeJS -> Addons -> [LootJS](../notes/minecraft/kubejs/addons/LootJS/Introduction.md)
+- [ ] Minecraft -> KubeJS -> Addons -> [LootJS](../notes/minecraft/kubejs/addons/lootjs/introduction.md)
 
 :::
