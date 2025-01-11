@@ -286,4 +286,167 @@ LootJS.lootTables(event => {
 
 ## 修改你的第一个战利品表 {#modify-your-first-loot-table}
 
+让我们以铁矿石的战利品表为例子
+
+@[code json](./iron_ore.json)
+
+### 添加抽取项 {#add-item}
+
+假如我们想让玩家在挖掘铁矿石时可以额外掉落一个粗金，那其实有好几种方案可以实现这个目标，但是鉴于这篇笔记是 LootJS 的笔记，那我们就用 LootJS 为我们提供的方法来实现。
+
+请注意这里我们使用的是 `firstPool()` 方法。我们将会大量使用该方法，以确保我们总是获取战利品表的第一个随机池。大多数原版战利品表只有一个随机池，该随机池会多次抽取。
+
+```JS
+
+LootJS.lootTables(event => {
+
+    event.getBlockTable("minecraft:iron_ore").print()
+
+    event.getBlockTable("minecraft:iron_ore")
+         .firstPool()
+         .addEntry("minecraft:raw_gold")
+
+    event.getBlockTable("minecraft:iron_ore").print()
+})
+
+```
+
+两次 `print()` 的输出如下
+
+可以根据 LootJS 打印出来的信息，我们可以看到成功添加一个粗金到了铁矿石的战利品表。
+
+::: code-tabs
+
+@tab 第一次
+
+```log
+
+Loot table: minecraft:blocks/iron_ore
+   % Pools [
+      {
+         % Rolls -> 1.0
+         % Bonus rolls -> 0.0
+         % Entries: [
+            {
+               minecraft:alternatives
+                  % Entries: [
+                     {
+                        % Item: minecraft:iron_ore
+                           % Conditions: [
+                              minecraft:match_tool
+                           ]
+                        % Item: minecraft:raw_iron
+                           % Functions: [
+                              minecraft:apply_bonus
+                              minecraft:explosion_decay
+                           ]
+                     }
+                  ]
+            }
+         ]
+      }
+   ]
+
+```
+
+@tab 第二次
+
+```log
+
+Loot table: minecraft:blocks/iron_ore
+   % Pools [
+      {
+         % Rolls -> 1.0
+         % Bonus rolls -> 0.0
+         % Entries: [
+            {
+               minecraft:alternatives
+                  % Entries: [
+                     {
+                        % Item: minecraft:iron_ore
+                           % Conditions: [
+                              minecraft:match_tool
+                           ]
+                        % Item: minecraft:raw_iron
+                           % Functions: [
+                              minecraft:apply_bonus
+                              minecraft:explosion_decay
+                           ]
+                     }
+                  ]
+               % Item: minecraft:raw_gold
+            }
+         ]
+      }
+   ]
+
+```
+
+:::
+
+#### 带有权重 {#with-weight}
+
+但是如果我们想要添加具有特定权重的物品呢？为此 LootJS 的 LootEntry API 为我们提供的 `withWeight` 函数。
+
+关于 `weight`：
+  
+- 相较于其他项的此项的权重。
+
+```JS
+
+LootJS.lootTables(event => {
+    event.getBlockTable("minecraft:iron_ore")
+         .firstPool()
+         .addEntry(
+            LootEntry.of("minecraft:raw_gold")
+                     .withWeight(20))
+})
+
+```
+
+#### 设置数量 {#set-quantity}
+
+我们也可以使用 `setCount` 函数改变粗金每次掉落的数量
+
+```JS
+
+LootJS.lootTables(event => {
+    event.getBlockTable("minecraft:iron_ore").print()
+    
+    event.getBlockTable("minecraft:iron_ore")
+         .firstPool()
+         .addEntry(
+            LootEntry.of("minecraft:raw_gold")
+                     .withWeight(20)
+                     .setCount([2,5]))
+})
+
+```
+
+### 修改抽取项 {#modify-item}
+
+如果我们现在想要修改战利品表的一个现有抽取项，我们可以使用 `modifyItem` 方法。
+
+```JS
+
+LootJS.lootTables(event => {
+    event.getBlockTable("minecraft:iron_ore")
+         .firstPool()
+         .addEntry(
+            LootEntry.of("minecraft:raw_gold")
+                     .withWeight(20).setCount([2,5]))
+
+    event.getBlockTable("minecraft:iron_ore")
+         .firstPool()
+         .modifyEntry(entry => {
+            if (entry.name === "minecraft:raw_gold") {
+                entry.setWeight(10)
+            }
+
+            return entry
+         })
+})
+
+```
+
 ## 创建你的第一个战利品表 {#create-your-first-loot-table}
