@@ -438,15 +438,19 @@ LootJS.lootTables(event => {
 
     event.getBlockTable("minecraft:iron_ore")
          .firstPool()
-         .modifyEntry(entry => {
-            if (entry.name === "minecraft:raw_gold") {
-                entry.setWeight(10)
+         .modifyItemEntry(itemEntry => {
+            if (itemEntry.item.id === "minecraft:raw_gold") {
+                itemEntry.setWeight(10)
             }
 
-            return entry
+            return itemEntry
          })
 })
 
 ```
+
+### 删除抽取项 {#remove-item}
+
+如果我们还想将某一个抽取项从随机池中删除，我们可以使用 LootJS 为我们提供的方法 `removeItem` 方法。
 
 ## 创建你的第一个战利品表 {#create-your-first-loot-table}
