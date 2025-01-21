@@ -5,12 +5,6 @@ permalink: /notes/minecraft/kubejs/addons/lootjs/loot_tables/
 outline: [2,6]
 ---
 
-::: important WIP
-
-本篇笔记目前处于 WIP 状态
-
-:::
-
 ## Loot Table Event
 
 该事件允许我们直接修改战利品表，可以在其他模组将它们的战利品更改注入到原版战利品表之后触发。
@@ -453,4 +447,150 @@ LootJS.lootTables(event => {
 
 如果我们还想将某一个抽取项从随机池中删除，我们可以使用 LootJS 为我们提供的方法 `removeItem` 方法。
 
+```JS
+
+LootJS.lootTables(event => {
+    // 目前 LootJS 3.2.2 有点问题
+    event.getBlockTable("minecraft:iron_ore")
+         .firstPool()
+         .removeItem("minecraft:raw_iron")
+         .removeItem("minecraft:iron_ore")
+})
+
+```
+
 ## 创建你的第一个战利品表 {#create-your-first-loot-table}
+
+我们可以使用 LootJS 来便捷的创建我们自己的战利品表。
+
+### 创建战利品表 {#create-the-table}
+
+```JS
+
+LootJS.lootTables(event => {
+    event.create("lootjs:rare_equipment")
+         .createPool(pool => {
+
+        })
+})
+
+```
+
+### 第一个随机池 {#first-pool}
+
+#### 第一个物品 {#first-item}
+
+::: code-tabs
+
+@tab Json 示例
+
+@[code json](./end_city_treasure.json)
+
+@tab LootJS 实现
+
+```JS
+
+LootJS.lootTables(event => {
+    event.create("lootjs:rare_equipment")
+         .createPool(pool => {
+        // Per default it will always be `#minecraft:on_random_loot` for `enchantWithLevels`
+        pool.addEntry(
+            LootEntry.of("minecraft:diamond_leggings")
+                     .withWeight(3)
+                     .enchantWithLevels([20, 39])
+        )
+    })
+})
+
+```
+
+:::
+
+#### 添加更多物品 {#more-item}
+
+我们也可以在第一随机池中添加更多的物品。
+
+```JS
+
+LootJS.lootTables(event => {
+    event.create("lootjs:rare_equipment").createPool(pool => {
+        pool.addEntry(
+            LootEntry.of("minecraft:diamond_leggings")
+                     .withWeight(3)
+                     .enchantWithLevels([20, 39])
+        )
+
+        pool.addEntry(
+            LootEntry.of("minecraft:iron_pickaxe")
+                     .withWeight(10)
+                     .enchantWithLevels([10, 19])
+        )
+
+        pool.addEntry(
+            LootEntry.of("minecraft:diamond_sword")
+                .withWeight(5)
+                .enchantWithLevels([30, 50])
+                .damage([0.3, 0.5])
+        )
+
+        pool.addEntry("minecraft:diamond_horse_armor")
+
+        pool.addEntry(
+            LootEntry.of("minecraft:diamond")
+                .setCount([2, 5])
+        )
+    })
+})
+
+```
+
+### 第二个随机池 {#second-pool}
+
+我们可以在第二随机池中添加一把特殊而稀有的剑
+
+```JS
+
+LootJS.lootTables(event => {
+    event
+        .create("lootjs:rare_equipment")
+        .createPool(pool => {
+            // first pool
+        })
+        .createPool(pool => {
+            pool.addEntry(
+                LootEntry.of("minecraft:netherite_sword")
+                         .enchant(builder => {
+                    builder.withEnchantment("minecraft:sharpness", [4, 5])
+                    builder.withEnchantment("minecraft:unbreaking", 3)
+                    builder.withEnchantment("minecraft:knockback", 2)
+                    builder.withEnchantment("minecraft:mending", 1)
+                })
+            )
+
+            // Vanilla often uses an empty entry with a weight instead of `randomChance`
+            // For this tutorial we will do the same.
+            pool.addEntry(
+                LootEntry.empty()
+                         .withWeight(20))
+        })
+})
+
+```
+
+### 附加我们的战利品表 {#append-our-loot-table}
+
+我们可以使用 `reference` 方法将我们的战利品表引用到其他战利品表上，同事可以使用 `randomChance` 方法使其抽取时更加稀有。
+
+```JS
+
+LootJS.lootTables(event => {
+    event.getLootTable("minecraft:gameplay/fishing")
+         .firstPool(pool => {
+            pool.addEntry(
+                LootEntry.reference("lootjs:rare_equipment")
+                         .randomChance(0.1)
+        )
+    })
+})
+
+```
