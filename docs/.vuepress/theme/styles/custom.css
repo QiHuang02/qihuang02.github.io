@@ -1,0 +1,90 @@
+:root {
+  /** 主题颜色 */
+
+  /*
+  --vp-c-brand-1: #5086a1;
+  --vp-c-brand-2: #6aa1b7;
+  --vp-c-brand-3: #8cccd5;
+  --vp-c-brand-soft: rgba(131, 208, 218, 0.314);
+  */
+
+  --vp-c-brand-1: rgba(251, 141, 111, 1);             /* 链接颜色、强调色 */
+  --vp-c-brand-2: rgba(229, 124, 95, 1);              /* 链接、按钮 hover 颜色 */
+  --vp-c-brand-3: rgba(240, 169, 143, 1);             /* 背景色、边框色 */
+  --vp-c-brand-soft: rgba(251, 141, 111, 0.314);      /* 辅助色 */
+
+  /** 背景颜色 */
+
+  /*
+  --vp-c-bg: #fff;
+  --vp-c-bg-alt: #f6f6f7;
+  --vp-c-bg-elv: #fff;
+  --vp-c-bg-soft: #f6f6f7;
+  */
+
+  /** 文本颜色 */
+
+  /*
+  --vp-c-text-1: rgba(60, 60, 67);
+  --vp-c-text-2: rgba(60, 60, 67, 0.78);
+  --vp-c-text-3: rgba(60, 60, 67, 0.56);
+  */
+}
+
+/** 深色模式 */
+[data-theme="dark"] {
+  /*
+  --vp-c-brand-1: #8cccd5;
+  --vp-c-brand-2: #6aa1b7;
+  --vp-c-brand-3: #5086a1;
+  --vp-c-brand-soft: rgba(131, 208, 218, 0.314);
+  */
+
+  --vp-c-brand-1: rgba(251, 141, 111, 1);             /* 链接颜色、强调色 */
+  --vp-c-brand-2: rgba(229, 124, 95, 1);              /* 链接、按钮 hover 颜色 */
+  --vp-c-brand-3: rgba(240, 169, 143, 1);             /* 背景色、边框色 */
+  --vp-c-brand-soft: rgba(251, 141, 111, 0.314);      /* 辅助色 */
+
+  /*
+  --vp-c-bg: #1b1b1f;
+  --vp-c-bg-alt: #161618;
+  --vp-c-bg-elv: #202127;
+  --vp-c-bg-soft: #202127;
+  */
+
+  /*
+  --vp-c-text-1: rgba(255, 255, 245, 0.86);
+  --vp-c-text-2: rgba(235, 235, 245, 0.6);
+  --vp-c-text-3: rgba(235, 235, 245, 0.38);
+  */
+}
+
+:root {
+  --vp-font-family-base:
+    "Maple Mono NF CN",
+    "Chinese Quotes",
+    inter,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --vp-font-family-mono:
+    "Maple Mono NF CN",
+    ui-monospace,
+    sfmono-regular,
+    menlo,
+    monaco,
+    consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+
+  font-optical-sizing: auto;
+}
