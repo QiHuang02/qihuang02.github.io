@@ -29,19 +29,17 @@ export default defineUserConfig({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
     hostname: 'https://qihuang02.cn',
 
-    navbar,
-    notes,
-
     /* 文档仓库配置，用于 editLink */
-    // docsRepo: '',
-    // docsDir: 'docs',
-    // docsBranch: '',
+    docsRepo: 'https://github.com/QiHuang02/qihuang02.github.io',
+    docsDir: 'docs',
+    docsBranch: 'master',
 
     /* 页内信息 */
-    // editLink: true,
-    // lastUpdated: true,
-    // contributors: true,
-    // changelog: false,
+    editLink: true,
+    editLinkText: '帮助我修改错误',
+    // lastUpdated: ,
+    contributors: { mode: 'block' },
+    changelog: true,
 
     /**
      * 博客
@@ -63,6 +61,9 @@ export default defineUserConfig({
     /* 博客文章页面链接前缀 */
     article: '/article/',
 
+    navbar,
+    notes,
+
     /**
      * 编译缓存，加快编译速度
      * @see https://theme-plume.vuejs.press/config/basic/#cache
@@ -80,6 +81,8 @@ export default defineUserConfig({
     },
 
     plugins: {
+      git: true,
+
       /**
        * Shiki 代码高亮
        * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
@@ -93,18 +96,18 @@ export default defineUserConfig({
       },
 
       /* 本地搜索, 默认启用 */
-      // search: true,
+      search: false,
 
       /**
        * Algolia DocSearch
        * 启用此搜索需要将 本地搜索 search 设置为 false
        * @see https://theme-plume.vuejs.press/config/plugins/search/#algolia-docsearch
        */
-      // docsearch: {
-      //   appId: '',
-      //   apiKey: '',
-      //   indexName: '',
-      // },
+      docsearch: {
+        appId: 'KBM88YK60Z',
+        apiKey: '96f06b5029acdb14e59580c714bf6559',
+        indexName: 'qihuang02',
+      },
 
       /* 文章字数统计、阅读时间，设置为 false 则禁用 */
       // readingTime: true,
