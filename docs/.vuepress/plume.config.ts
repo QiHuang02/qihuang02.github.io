@@ -17,6 +17,8 @@ export default defineThemeConfig({
   aside: true, // 页内侧边栏， 默认显示在右侧
   outline: [2, 6], // 页内大纲， 默认显示 h2, h3
 
+  lastUpdatedText: '上次更新于',
+
   /**
    * 文章版权信息
    * @see https://theme-plume.vuejs.press/guide/features/copyright/
