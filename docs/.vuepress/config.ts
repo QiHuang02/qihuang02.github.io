@@ -40,6 +40,7 @@ export default defineUserConfig({
     // lastUpdated: ,
     contributors: { mode: 'block' },
     changelog: true,
+    sidebarScrollbar: false,
 
     /**
      * 博客
@@ -90,7 +91,7 @@ export default defineUserConfig({
       shiki: {
         // 强烈建议预设代码块高亮语言，插件默认加载所有语言会产生不必要的时间开销
         languages: ['shell', 'bash', 'typescript', 'javascript', 'css', 'html', 'json', 'log'],
-        twoslash: false, // 启用 twoslash
+        twoslash: true, // 启用 twoslash
         whitespace: false, // 启用 空格/Tab 高亮
         lineNumbers: false, // 启用行号
       },
