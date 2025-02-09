@@ -12,13 +12,13 @@ pnpm i
 
 ```sh
 # start dev server
-pnpm docs:dev
+pnpm run docs:dev
 # build for production
-pnpm docs:build
+pnpm run docs:build
 # preview production build in local
-pnpm docs:preview
+pnpm run docs:preview
 # update vuepress and theme
-pnpm vp-update
+pnpm run vp-update
 ```
 
 ## Documents
