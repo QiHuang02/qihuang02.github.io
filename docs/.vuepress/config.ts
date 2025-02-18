@@ -18,6 +18,7 @@ export default defineUserConfig({
     ['link', { rel: 'shortcut icon', type: 'image/svg+xml', sizes: '32*32', href: '/favicon.svg'}],
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png'}],
     ['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg'}],
+    ['link', { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@docsearch/css@3"}],
     ['link', { rel: "preconnect", href: "https://static.zeoseven.com", crossorigin: ""}],
     ['link', { rel: "stylesheet", href: "https://static.zeoseven.com/zsft/442/main/result.css"}]
   ],
