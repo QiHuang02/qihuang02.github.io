@@ -107,7 +107,7 @@ export default defineUserConfig({
        */
       docsearch: {
         appId: 'KBM88YK60Z',
-        apiKey: '15d024ac8f5eea9dabd2c533ac5ec796',
+        apiKey: 'f7ed45cb53f4a79ae3befd29ad78399d',
         indexName: 'qihuang02',
       },
 
