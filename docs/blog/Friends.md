@@ -18,8 +18,8 @@ groups:
         desc: 一个由Crychic团队维护的我的世界文档.
       -
         name: PrizOwO'Blog
-        link: https://blogs.prizowo.net/
-        avatar: https://blogs.prizowo.net/icon/web.png
+        link: https://prizowo.net/
+        avatar: https://prizowo.net/logo.png
         desc: 这里收集了各种 Minecraft 模组的教程、资源以及使用工具.
       -
         name: 芒果的 KubeJS 筆記
@@ -53,14 +53,14 @@ groups:
         name: Modrinth
         link: https://modrinth.com/
         avatar: https://modrinth.com/favicon.ico
-  - 
-    title: 博客主题
-    list:
-      -
-        name: Vuepress-theme-plume
-        link: https://theme-plume.vuejs.press/
-        avatar: https://theme-plume.vuejs.press/favicon-32x32.png
-        desc: 一个简约易用的，功能丰富的 vuepress 文档&博客 主题.
+  # - 
+  #   title: 博客主题
+  #   list:
+  #     -
+  #       name: Vuepress-theme-plume
+  #       link: https://theme-plume.vuejs.press/
+  #       avatar: https://theme-plume.vuejs.press/favicon-32x32.png
+  #       desc: 一个简约易用的，功能丰富的 vuepress 文档&博客 主题.
   - 
     title: 技术性文档
     list:
