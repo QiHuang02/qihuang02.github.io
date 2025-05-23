@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.11.0",
   "author": "QiHuang02 <2830447227@qq.com>",
   "license": "MIT",
   "engines": {
@@ -19,10 +19,10 @@
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.23",
     "http-server": "^14.1.1",
-    "sass-embedded": "^1.88.0",
+    "sass-embedded": "^1.89.0",
     "typescript": "^5.8.3",
-    "vue": "^3.5.13",
+    "vue": "^3.5.14",
     "vuepress": "2.0.0-rc.23",
-    "vuepress-theme-plume": "1.0.0-rc.146"
+    "vuepress-theme-plume": "1.0.0-rc.151"
   }
 }
