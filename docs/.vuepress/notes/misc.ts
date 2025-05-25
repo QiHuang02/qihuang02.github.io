@@ -12,6 +12,7 @@ export default defineNoteConfig({
                 'Attribute',
                 'Block',
                 'Blockbench',
+                'Codec',
                 'DataComponents',
                 'Ingredient',
                 'Item',
