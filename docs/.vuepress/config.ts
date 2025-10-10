@@ -2,7 +2,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 import { navbar } from './navbar'
-import { notes } from './notes/notes'
+import { collections } from './collections'
 
 export default defineUserConfig({
   base: '/',
@@ -43,28 +43,8 @@ export default defineUserConfig({
     changelog: true,
     sidebarScrollbar: false,
 
-    /**
-     * 博客
-     * @see https://theme-plume.vuejs.press/config/basic/#blog
-     */
-    // blog: false, // 禁用博客
-    blog: {
-      postList: true, // 是否启用文章列表页
-      tags: true, // 是否启用标签页
-      archives: true, // 是否启用归档页
-      categories: true, // 是否启用分类页
-      postCover: 'right', // 文章封面位置
-      pagination: 15, // 每页显示文章数量
-      include: [
-        'blog/*.md'
-      ]
-    },
-
-    /* 博客文章页面链接前缀 */
-    article: '/article/',
-
     navbar,
-    notes,
+    collections,
 
     /**
      * 编译缓存，加快编译速度
@@ -113,17 +93,6 @@ export default defineUserConfig({
 
       /* 文章字数统计、阅读时间，设置为 false 则禁用 */
       // readingTime: true,
-
-      /**
-       * markdown enhance
-       * @see https://theme-plume.vuejs.press/config/plugins/markdown-enhance/
-       */
-      markdownEnhance: {
-        // chartjs: true,
-        // echarts: true,
-        // mermaid: true,
-        // flowchart: true,
-      },
 
       /**
        *  markdown power
