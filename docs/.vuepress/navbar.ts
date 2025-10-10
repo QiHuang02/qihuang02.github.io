@@ -20,12 +20,12 @@ export const navbar = defineNavbarConfig([
           {
             text: 'KubeJS',
             icon: 'https://kubejs.com/img/logo/48.png',
-            link: '/notes/minecraft/kubejs/'
+            link: '/minecraft/kubejs/'
           },
           {
             text: 'Minecraft小知识',
             icon: 'fluent-mdl2:knowledge-article',
-            link: '/notes/minecraft/misc/'
+            link: '/minecraft/misc/'
           }
         ]
       },
@@ -36,7 +36,7 @@ export const navbar = defineNavbarConfig([
           {
             text: '常用指令',
             icon: 'fa6-brands:square-git',
-            link: '/notes/git/git_command.md'
+            link: '/git/git_command'
           }
         ],
       }
