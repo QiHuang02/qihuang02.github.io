@@ -1,0 +1,8 @@
+# Algolia-Crawler-Verif: 470918B00B1255CB
+
+User-agent: *
+Allow: /
+Sitemap: https://qihuang02.cn/sitemap.xml
+
+User-agent:*
+Disallow:
