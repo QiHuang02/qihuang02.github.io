@@ -60,7 +60,60 @@ Codec 系统由一系列协同工作的类和接口组成，它们共同构成�
 
 ### 2.2 `DynamicOps<T>`：适配数据格式 (JsonOps, NbtOps)
 
-`DynamicOps<T>` 扮演着层级化序列化格式（例如 JSON、NBT）的适配器角色。它允许从底层序列化形式中提取和插入简单数据类型。常见的实现有用于处理 JSON 数据的 `JsonOps` 和用于处理 NBT 数据的 `NbtOps`。Codec 通常与一个 `DynamicOps` 实例协同工作，以完成实际的编解码操作。
+`DynamicOps<T>` 是层级化序列化格式的适配器：Codec 负责描述“对象结构”，而 DynamicOps 负责描述“输出/输入格式”（JSON/NBT 等）。因此同一个 Codec 可以与不同 DynamicOps 组合使用，实现多格式的复用与互转。
+
+而在模组开发中经常使用的 `DynamicOps<T>` 实现有 `JsonOps` 和 `NbtOps`。
+
+::: tabs
+
+@tab `JsonOps`
+
+作用：DFU 库提供的 JSON 适配器，面向 `GsonJsonElement`。
+
+实例：
+
+- `JsonOps.INSTANCE`：输出标准的 JSON 格式
+- `JsonOps.COMPRESSED`：输出压缩为单字符串的 JSON 格式
+
+使用场景：数据包 JSON、自定义配置文件、资源/行为定义等。
+
+@tab `NbtOps`
+
+作用：DFU 库提供的 NBT 适配器，面向 `CompoundTag`。
+
+使用场景：同一份 Codec 既可读写数据包 JSON，也可在网络或存档中用 NBT 表示。例如维度数据在数据包中为 JSON，但网络传输可能为 NBT，此时 NbtOps 提供统一编解码通道。
+
+@tab `RegistryOps`
+
+作用：为 Codec 提供 注册表查找能力（registry lookup），用于解析/序列化注册表中的条目（如方块、生物群系等）。
+
+使用方法：`RegistryOps.create(delegateOps, lookupProvider)` —— 会将“目标格式 Ops + 注册表查找”组合起来。
+
+结构关系：`RegistryOps` 继承 `DelegatingOps`，即本质是对另一个 Ops 的包装/扩展。
+
+@tab `ConditionalOps`
+
+作用：NeoForge 在 `RegistryOps` 基础上扩展，用于处理条件加载（conditions）。
+
+相关机制：NeoForge 支持在 JSON 中声明 `neoforge:conditions`，不满足条件时文件会被丢弃（常见于配方、战利品表、动态注册表等）。
+
+场景：兼容性数据包、可选依赖的内容注册、条件替换等。
+
+@tab `DelegatingOps<T>`
+
+作用：把所有操作委托给内部 delegate 的 DynamicOps，是“包装/扩展”类的基础。
+
+场景：当你需要在原有 Ops 基础上“额外加一层上下文/规则”时使用（例如 `RegistryOps` 就是 DelegatingOps 的典型子类）。
+
+@tab `NullOps` && `JavaOps`
+
+&emsp;&emsp;除了常见的 `JsonOps` 与 `NbtOps`，Minecraft 体系里还有一些更偏“运行时/上下文”的 `DynamicOps` 实现。它们的作用不是改变 Codec 的定义，而是改变 Codec 所落地的数据形态，从而适配不同的读写场景。
+
+&emsp;&emsp;其中 NullOps 可以理解为“空输出 / 丢弃型”的 Ops。它的目标类型是 Unit，所有 create* 方法都会返回 Unit.INSTANCE，empty() / emptyMap() / emptyList() 也只给 Unit.INSTANCE，等价于“不产生任何实际序列化结果”。同时，所有读取类方法都会直接报错（例如 getNumberValue / getMap / getList 都返回 DataResult.error）。也就是说，NullOps 仍能让 Codec 的流程跑完，但不会保留任何数据。这种实现常用于只做“结构校验”或刻意丢弃输出的场景。
+
+&emsp;&emsp;与之相对，JavaOps 是“纯 Java 运行时对象”的 Ops。它将序列化结构映射为 Java 的 Map / List / 基本类型对象。
+
+:::
 
 <ImageCard
     image='/images/DynamicOps.png'
@@ -69,7 +122,7 @@ Codec 系统由一系列协同工作的类和接口组成，它们共同构成�
 
 ### 2.3 `DataResult<A>`：处理结果与错误
 
-使用 `Codec` 进行编码或解码操作后，返回的是一个 `DataResult<A>` 对象。该对象封装了转换操作的结果，其中可能包含成功转换的实例，或者在转换失败时包含错误数据。`DataResult` 可以表示成功或失败状态，其 `resultOrPartial` 方法在处理自定义数据包（datapack）资源等场景时特别有用，它允许在记录错误的同时，仍可能获取部分成功转换的结果。
+&emsp;&emsp;使用 `Codec` 进行编码或解码操作后，返回的是一个 `DataResult<A>` 对象。该对象封装了转换操作的结果，其中可能包含成功转换的实例，或者在转换失败时包含错误数据。`DataResult` 可以表示成功或失败状态，其 `resultOrPartial` 方法在处理自定义数据包（datapack）资源等场景时特别有用，它允许在记录错误的同时，仍可能获取部分成功转换的结果。
 
 ## 3 如何构建 Codec
 
@@ -77,9 +130,9 @@ Codec 系统由一系列协同工作的类和接口组成，它们共同构成�
 
 ### 3.1 基本类型的 Codec (String, Int, Bool 等)
 
-Mojang 提供了用于处理 Java 基本数据类型及其包装类的内置 Codec，例如 `Codec.BOOL`、`Codec.INT`、`Codec.STRING`、`Codec.FLOAT` 等。这些是构建更复杂 Codec 的基础构件。
+&emsp;&emsp;Mojang 提供了用于处理 Java 基本数据类型及其包装类的内置 Codec，例如 `Codec.BOOL`、`Codec.INT`、`Codec.STRING`、`Codec.FLOAT` 等。这些是构建更复杂 Codec 的基础构件。
 
-因为本篇教程我是基于Neoforge开发角度，所以你可以在Neoforge官方的[Wiki](https://docs.neoforged.net/docs/datastorage/codecs/#existing-codecs)中找到更多的Codec类型。
+&emsp;&emsp;因为本篇教程我是基于Neoforge开发角度，所以你可以在Neoforge官方的[Wiki](https://docs.neoforged.net/docs/datastorage/codecs/#existing-codecs)中找到更多的Codec类型。
 
 ### 3.2 使用 `RecordCodecBuilder` 定义复杂数据
 
@@ -91,7 +144,7 @@ Mojang 提供了用于处理 Java 基本数据类型及其包装类的内置 Cod
 
 #### 3.2.2 定义字段：`fieldOf()` 与 `forGetter()`
 
-在 `RecordCodecBuilder.group(...)`内部，每个字段都通过其类型的 `Codec`、后跟 `.fieldOf("json_key_name")`（指定序列化格式中的键名）以及 `.forGetter(MyClass::getFieldName)`（提供用于序列化的 getter 函数）来定义。这些方法将 Java 字段（通过其 getter 和类型的 Codec）与其在序列化数据中的表示（键名）关联起来。
+&emsp;&emsp;在 `RecordCodecBuilder.group(...)`内部，每个字段都通过其类型的 `Codec`、后跟 `.fieldOf("json_key_name")`（指定序列化格式中的键名）以及 `.forGetter(MyClass::getFieldName)`（提供用于序列化的 getter 函数）来定义。这些方法将 Java 字段（通过其 getter 和类型的 Codec）与其在序列化数据中的表示（键名）关联起来。
 
 ```Java
 // 假设有一个 Java Record:
@@ -108,7 +161,7 @@ public static final Codec MY_DATA_CODEC = RecordCodecBuilder.create(instance ->
 
 #### 3.2.3 处理可选性：optionalFieldOf() 与默认值
 
-为了处理数据中可能缺失的字段，可以使用 `someCodec.optionalFieldOf("field_name")` 来创建一个对应 `Optional<Type>` 类型的字段。如果希望在字段缺失时提供一个默认值，则可以使用 `someCodec.optionalFieldOf("field_name", defaultValue)`。需要注意的是，如果一个可选字段存在但数据格式错误，错误可能会被静默捕获，并使用默认值代替。若希望在可选元素解析出错时消费掉该错误，可以使用 `lenientOptionalFieldOf`。
+&emsp;&emsp;为了处理数据中可能缺失的字段，可以使用 `someCodec.optionalFieldOf("field_name")` 来创建一个对应 `Optional<Type>` 类型的字段。如果希望在字段缺失时提供一个默认值，则可以使用 `someCodec.optionalFieldOf("field_name", defaultValue)`。需要注意的是，如果一个可选字段存在但数据格式错误，~~错误可能会被静默捕获，并使用默认值代替~~ **(现在一个字段存在但是解析失败，会报错了，此时需要使用 `lenientOptionalFieldOf`)**。若希望在可选元素解析出错时消费掉该错误，可以使用 `lenientOptionalFieldOf`。
 
 ```Java
 // 假设有一个 Java Record:
@@ -126,19 +179,31 @@ public static final Codec CONFIG_DATA_CODEC = RecordCodecBuilder.create(instance
 
 ### 3.3 转换与组合 Codec
 
-Codec 系统提供了强大的机制来转换现有 Codec 以适应新的数据类型，或将多个 Codec 组合成更复杂的结构。
+Codec 系统提供了强大的组合与转换能力，让你可以在已有 Codec 的基础上构建更复杂的数据结构，或对字段做类型映射、校验与多态分发。
 
-#### 3.3.1 类型间映射：xmap() 及其变体 (flatXMap, comapFlatMap)
+#### 3.3.1 类型间映射：`xmap()` 及其变体 (`flatXMap`, `comapFlatMap`)
 
-WIP
+当你需要在两种类型之间做转换时，可以用 xmap 系列方法。核心思想是：
 
-#### 3.3.2 实现多态分发：Codec.dispatch()
+- `xmap`：两个方向都不会失败的映射。
+- `flatXMap`：两个方向都有可能失败，这会返回 `DataResult`。
+- `comapFlatMap`：解码方向可能失败（`A -> B` 可能失败），编码方向安全。
+- `flatComapMap`：编码方向可能失败（`B -> A` 可能失败），解码方向安全。
 
-WIP
+#### 3.3.2 实现多态分发：`Codec.dispatch()`
 
-#### 3.3.3 组合 Codec：Codec.pair() 与 Codec.either()
+当一个字段代表 “多种子类型中的一种” 时，可以用 dispatch 进行多态分发。思路是：
 
-WIP
+- 数据里有一个 “类型字段”，如 type；
+- 先根据 `type` 取到子类型；
+- 再选择对应子类型 Codec 进行编解码。
+
+这非常适合 “可扩展配置” “多种子类配置” 的场景。
+
+#### 3.3.3 组合 `Codec.pair()` 与 `Codec.either()`
+
+- `pair`：在同一份数据上依次解两个值，得到一个二元组；适合“组合多个字段”的场景。
+- `either`：先尝试第一个 Codec；若失败再尝试第二个，适合“多种结构都允许”的场景。
 
 ## 4 Codec 在Minecraft （Neoforge、Fabric） 生态中的应用
 
@@ -148,18 +213,25 @@ WIP
 
 @tab 数据组件
 
-数据组件（Data Components）是 Minecraft 1.20.5 版本引入的一项重要特性，用以替代旧的 `ItemStack NBT` 系统来存储物品栈的附加数据。Codec 在定义这些自定义数据组件的持久化和网络同步方式方面起着核心作用。
+&emsp;&emsp;数据组件（Data Components）是 Minecraft 1.20.5 版本引入的一项重要特性，用以替代旧的 `ItemStack NBT` 系统来存储物品栈的附加数据。Codec 在定义这些自定义数据组件的持久化和网络同步方式方面起着核心作用。
 
 对于 NeoForge，数据组件将数据作为实际对象存储在物品栈上。定义一个 `DataComponentType` 时，需要为其提供一个用于持久化的 Codec（通过 `.persistent()` 方法指定）和/或一个用于网络同步的 `StreamCodec`（通过 `.networkSynchronized()` 方法指定）。`RecordCodecBuilder` 是创建这些 Codec 的常用工具。
 
 @tab 自定义配方序列化器
 
-模组可以通过自定义配方序列化器（Recipe Serializer）来定义全新的合成机制或处理类型，这些通常具有自定义的 JSON 结构。Codec 在此过程中负责解析这些 JSON 并将其转换为游戏逻辑中可用的 Java 对象。
+&emsp;&emsp;模组可以通过自定义配方序列化器（Recipe Serializer）来定义全新的合成机制或处理类型，这些通常具有自定义的 JSON 结构。Codec 在此过程中负责解析这些 JSON 并将其转换为游戏逻辑中可用的 Java 对象。
 
-对于 NeoForge，自定义的 `RecipeSerializer` 需要提供一个 `MapCodec` 用于 JSON 的序列化和反序列化，以及一个 `StreamCodec` 用于网络同步。通常使用 `RecordCodecBuilder.mapCodec(...)` 来创建所需的 MapCodec。
+&emsp;&emsp;对于 NeoForge，自定义的 `RecipeSerializer` 需要提供一个 `MapCodec` 用于 JSON 的序列化和反序列化，以及一个 `StreamCodec` 用于网络同步。通常使用 `RecordCodecBuilder.mapCodec(...)` 来创建所需的 MapCodec。
 
 @tab 网络数据包序列化
 
-为了实现高效的网络通信，Minecraft 使用 `StreamCodec<B, V>`（其中 B 通常是 ByteBuf 或 RegistryFriendlyByteBuf）进行数据包内容的序列化和反序列化。它与用于磁盘/JSON 序列化的通用 `Codec<T>` 是不同的。`DataComponentType.Builder` 接受一个 `StreamCodec` 用于 `networkSynchronized` 配置。`RecipeSerializer` 同样需要一个 `StreamCodec`。
+&emsp;&emsp;为了实现高效的网络通信，Minecraft 使用 `StreamCodec<B, V>`（其中 B 通常是 ByteBuf 或 RegistryFriendlyByteBuf）进行数据包内容的序列化和反序列化。它与用于磁盘/JSON 序列化的通用 `Codec<T>` 是不同的。`DataComponentType.Builder` 接受一个 `StreamCodec` 用于 `networkSynchronized` 配置。`RecipeSerializer` 同样需要一个 `StreamCodec`。
 
 :::
+
+> [!tip]
+> `StreamCodec` 与 `MapCodec` 的区分
+>
+> - `MapCodec` 用于结构化数据（通常是 JSON），适合定义 “键值对字段” 的数据结构。
+> - `StreamCodec` 用于网络同步（基于 ByteBuf/RegistryFriendlyByteBuf）。
+>   - 典型场景：自定义配方序列化器会同时要求 `MapCodec`（JSON 数据包）和 `StreamCodec`（网络同步）；数据组件也常同时需要持久化与网络同步的编解码器。

@@ -7,3 +7,5 @@ docs/.vuepress/dist
 .DS_Store
 *.log
 docs/.vuepress/public/DeepseekAPI.png
+
+.serena/

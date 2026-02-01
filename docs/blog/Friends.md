@@ -13,13 +13,13 @@ groups:
     list:
       -
         name: CryChic 文档
-        link: https://docs.mihono.cn/zh/
-        avatar: https://docs.mihono.cn/svg/crychic.svg
+        link: https://docs.variedmc.cc/zh/
+        avatar: https://docs.variedmc.cc/favicon.ico
         desc: 一个由Crychic团队维护的我的世界文档.
       -
         name: PrizOwO'Blog
-        link: https://prizowo.net/
-        avatar: https://prizowo.net/logo.png
+        link: https://www.lirxowo.com/
+        avatar: https://www.lirxowo.com/logo.png
         desc: 这里收集了各种 Minecraft 模组的教程、资源以及使用工具.
       -
         name: 芒果的 KubeJS 筆記
