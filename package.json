@@ -7,7 +7,7 @@
   "author": "QiHuang02 <2830447227@qq.com>",
   "license": "MIT",
   "engines": {
-    "node": "^18.20.0 || >=22.1.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
