@@ -3,11 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@11.1.1+sha512.d1fdf5f73c617b64fa1a56a81c3c8dfe0e966e33a6010aa256b517ae77be21d93e05affc0de1a83b0e4f29d569f68b446ae8f068cd7247c0bb3df0fb4d7bdf9a",
   "author": "QiHuang02 <2830447227@qq.com>",
   "license": "MIT",
   "engines": {
-    "node": "^18.20.0 || >=20.0.0"
+    "node": "^18.20.0 || >=22.1.0"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -17,13 +17,13 @@
     "vp-update": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.26",
+    "@vuepress/bundler-vite": "2.0.0-rc.29",
     "@vuepress/shiki-twoslash": "2.0.0-rc.112",
     "http-server": "^14.1.1",
-    "sass-embedded": "^1.97.3",
+    "sass-embedded": "^1.99.0",
     "typescript": "^5.9.3",
-    "vue": "^3.5.27",
-    "vuepress": "2.0.0-rc.26",
-    "vuepress-theme-plume": "1.0.0-rc.187"
+    "vue": "^3.5.34",
+    "vuepress": "2.0.0-rc.29",
+    "vuepress-theme-plume": "1.0.0-rc.200"
   }
 }
